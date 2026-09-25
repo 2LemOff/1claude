@@ -45,7 +45,8 @@
         "Blue-shifted LED batch stresses crop"
       ],
       "dragOutcome": true
-    }
+    },
+    "try": null
   },
   "realCase": {
     "kind": "failure",

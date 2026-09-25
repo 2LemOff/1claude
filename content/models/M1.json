@@ -36,16 +36,48 @@
   ],
   "sim": {
     "type": "diagram",
-    "kind": "decomposition-tree",
+    "kind": "sort-cards",
     "settings": {
-      "root": "Keep 200 people breathing",
-      "leaves": [
-        "O2 consumed per person",
-        "O2 produced per plant",
-        "O2 in storage",
-        "Leak rate"
+      "goal": "Keep 200 people breathing for 90 days",
+      "cards": [
+        {
+          "text": "Each person uses about 0.84 kg of O₂ a day",
+          "must": true,
+          "why": "Human physiology, measured by NASA."
+        },
+        {
+          "text": "The greenhouse makes about 118 kg of O₂ a day, falling 1% a day",
+          "must": true,
+          "why": "Measured at the dome's outlet."
+        },
+        {
+          "text": "6,000 kg of O₂ is in storage",
+          "must": true,
+          "why": "Tank gauges, checked twice."
+        },
+        {
+          "text": "The hull leaks almost nothing",
+          "must": true,
+          "why": "Pressure test came back normal."
+        },
+        {
+          "text": "The manual says: order 3 tanks per person per month",
+          "must": false,
+          "why": "A unit someone chose, and no ship is coming."
+        },
+        {
+          "text": "Earth greenhouses use this lamp layout",
+          "must": false,
+          "why": "A copied design, not a constraint here."
+        },
+        {
+          "text": "The scrubbers have always run on a fixed timer",
+          "must": false,
+          "why": "Habit. The real need depends on the CO₂ level."
+        }
       ]
-    }
+    },
+    "try": "Tap each card: is it a hard fact that must be true, or a copied habit?"
   },
   "realCase": {
     "kind": "success",

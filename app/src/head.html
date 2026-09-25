@@ -1,0 +1,218 @@
+<title>Kepler Station</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+:root{
+  --bg:#E8EDF1; --panel:#F7F9FB; --ink:#14202B; --muted:#586878; --line:#C7D1DA;
+  --accent:#0B8A83; --accent-ink:#FFFFFF; --warn:#C8621E;
+  --sky1:#D5E0E9; --sky2:#EEF3F6; --ground:#B7C3CD; --ground2:#A3B1BC; --module:#FFFFFF;
+  --glass:rgba(11,138,131,0.07); --holo:rgba(247,249,251,0.96); --stars:0;
+  --c-you:#FFFFFF; --c-ada:#0F9A8E; --c-mira:#4C9A2A; --c-dox:#2F6FD6; --c-rook:#D0453A;
+  --f-display:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;
+  --f-ui:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-story:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --f-mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --navh:64px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0A0F15; --panel:#101821; --ink:#E2EAF0; --muted:#8696A6; --line:#233140;
+    --accent:#3ED3C2; --accent-ink:#04211E; --warn:#F0914A;
+    --sky1:#04070B; --sky2:#0C131B; --ground:#18232E; --ground2:#121B24; --module:#152029;
+    --glass:rgba(62,211,194,0.06); --holo:rgba(11,17,24,0.96); --stars:0.85;
+    --c-you:#F4F7FA; --c-ada:#3ED3C2; --c-mira:#86D05F; --c-dox:#76A7FF; --c-rook:#FF6E61;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0A0F15; --panel:#101821; --ink:#E2EAF0; --muted:#8696A6; --line:#233140;
+  --accent:#3ED3C2; --accent-ink:#04211E; --warn:#F0914A;
+  --sky1:#04070B; --sky2:#0C131B; --ground:#18232E; --ground2:#121B24; --module:#152029;
+  --glass:rgba(62,211,194,0.06); --holo:rgba(11,17,24,0.96); --stars:0.85;
+  --c-you:#F4F7FA; --c-ada:#3ED3C2; --c-mira:#86D05F; --c-dox:#76A7FF; --c-rook:#FF6E61;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-ui);font-size:15px;line-height:1.5;padding-inline:16px;padding-block:12px 32px;-webkit-tap-highlight-color:transparent}
+button,input,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1320px;margin-inline:auto;display:flex;flex-direction:column;gap:12px}
+
+.top{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;justify-content:space-between}
+.brand{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.brand h1{font-family:var(--f-display);font-weight:700;font-size:30px;letter-spacing:.02em;margin:0;text-transform:uppercase;line-height:1}
+.brand span{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.status{display:flex;flex-wrap:wrap;gap:4px 16px;align-items:center;font-family:var(--f-mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.status b{color:var(--ink);font-weight:500}
+.status .bad b{color:var(--warn)}
+#stopsBtn{display:none}
+
+.main{display:grid;grid-template-columns:minmax(0,1fr) 440px;gap:18px;align-items:start}
+.stage{position:sticky;top:calc(env(safe-area-inset-top,0px) + 10px);display:flex;flex-direction:column;gap:10px;min-width:0}
+.canvasbox{position:relative;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--sky2)}
+canvas#scene{display:block;width:100%;touch-action:manipulation;user-select:none;-webkit-user-select:none}
+.scenebar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.simcontrols{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;padding:10px 12px;border:1px solid var(--line);border-radius:6px;background:var(--panel)}
+.ctl{display:flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:12px;color:var(--muted);min-height:32px}
+.ctl input[type=range]{width:140px;accent-color:var(--accent)}
+.ctl input[type=checkbox]{width:18px;height:18px;accent-color:var(--accent)}
+.ctl output{color:var(--ink);min-width:5ch;font-variant-numeric:tabular-nums}
+.btn{border:1px solid var(--line);background:var(--panel);border-radius:4px;padding:7px 14px;min-height:38px;cursor:pointer;font-family:var(--f-display);font-weight:600;font-size:15px;letter-spacing:.04em;text-transform:uppercase}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn.ghost{background:transparent}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+
+.trail{display:flex;flex-direction:column;gap:10px}
+.trail .sheethead{display:none}
+.act{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.act h3{font-family:var(--f-display);font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0;width:100%}
+.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:3px 10px 3px 4px;min-height:30px;cursor:pointer;font-size:13px;text-align:left}
+.chip i{font-style:normal;font-family:var(--f-mono);font-size:11px;width:22px;height:22px;flex:0 0 22px;border-radius:50%;display:grid;place-items:center;background:var(--bg);color:var(--muted);font-variant-numeric:tabular-nums}
+.chip.done i{background:rgba(11,138,131,.18);color:var(--accent)}
+.chip[aria-current="true"]{border-color:var(--accent)}
+.chip[aria-current="true"] i{background:var(--accent);color:var(--accent-ink)}
+.chip .t{font-family:var(--f-mono);font-size:10px;color:var(--muted);text-transform:uppercase}
+
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:6px;display:flex;flex-direction:column;min-width:0}
+.steps{display:flex;gap:4px;padding:12px 14px 0;overflow-x:auto;scrollbar-width:none}
+.steps::-webkit-scrollbar{display:none}
+.steps button{all:unset;cursor:pointer;flex:1 0 auto;display:flex;flex-direction:column;gap:5px;min-width:34px;font-family:var(--f-mono);font-size:10px;text-transform:uppercase;color:var(--muted);padding-block:2px 6px}
+.steps button::before{content:"";height:3px;border-radius:2px;background:var(--line)}
+.steps button.seen::before{background:rgba(11,138,131,.45)}
+.steps button[aria-current="step"]{color:var(--ink)}
+.steps button[aria-current="step"]::before{background:var(--accent)}
+.steps button:focus-visible{outline:2px solid var(--accent)}
+.steps .lbl{white-space:nowrap}
+.body{padding:14px 18px 20px;display:flex;flex-direction:column;gap:16px}
+.eyebrow{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 12px}
+.panel h2{font-family:var(--f-display);font-weight:700;font-size:32px;line-height:1.02;margin:0;text-wrap:balance}
+.stepname{font-family:var(--f-display);font-weight:600;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:0}
+.lead{font-size:16px;margin:0;max-width:62ch}
+.rule{font-size:17px;font-weight:500;margin:0}
+.formula{font-family:var(--f-mono);font-size:13px;padding:8px 10px;border-left:2px solid var(--accent);background:var(--bg);overflow-x:auto;white-space:nowrap}
+.sec{display:flex;flex-direction:column;gap:8px}
+.sec h4{margin:0;font-family:var(--f-display);font-weight:600;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.beat{font-family:var(--f-story);font-size:18px;line-height:1.55;margin:0;max-width:62ch}
+.beat .s{opacity:.35;transition:opacity .25s;cursor:pointer}
+.beat .s.on{opacity:1}
+.beat .s.done{opacity:.72}
+.plain{font-family:var(--f-story);font-style:italic;color:var(--muted);margin:0;font-size:16px}
+.small{font-size:13px;color:var(--muted);margin:0}
+.try{margin:0;padding:10px 12px;border:1px solid var(--accent);border-radius:4px;font-size:15px}
+.try b{font-family:var(--f-mono);font-size:11px;text-transform:uppercase;color:var(--accent);font-weight:500;display:block}
+ul.ex{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+ul.ex button{all:unset;cursor:pointer;display:grid;grid-template-columns:auto 1fr;gap:10px;padding:10px 12px;border:1px solid var(--line);border-radius:4px;font-size:15px;line-height:1.45}
+ul.ex button:hover,ul.ex button[aria-pressed="true"]{border-color:var(--accent)}
+ul.ex button:focus-visible{outline:2px solid var(--accent)}
+ul.ex .loc{font-family:var(--f-mono);font-size:10px;text-transform:uppercase;color:var(--accent);padding-top:4px;width:9ch}
+.archive{border:1px dashed var(--line);border-radius:4px;padding:14px;display:flex;flex-direction:column;gap:6px;background:var(--bg)}
+.archive .hd{font-family:var(--f-mono);font-size:11px;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.archive .hd b{color:var(--warn);font-weight:500}
+.archive .hd b.ok{color:var(--accent)}
+.archive h5{margin:0;font-family:var(--f-display);font-size:21px;font-weight:600}
+.archive p{margin:0;font-family:var(--f-story);font-size:16px}
+.archive cite{font-size:12px;color:var(--muted);font-style:normal}
+.misuse{margin:0;font-size:15px;padding:10px 12px;border-left:2px solid var(--warn);background:var(--bg)}
+.rel{display:flex;flex-wrap:wrap;gap:6px}
+ul.src{margin:0;padding-left:18px;font-size:13px;color:var(--muted)}
+ul.src a{color:var(--accent)}
+
+.q{display:flex;flex-direction:column;gap:8px}
+.q .prompt{margin:0;font-weight:500;font-size:16px}
+.q .opts{display:flex;flex-direction:column;gap:6px}
+.q .opt{all:unset;cursor:pointer;padding:10px 12px;border:1px solid var(--line);border-radius:4px;font-size:15px;line-height:1.35;background:var(--panel)}
+.q .opt:hover{border-color:var(--accent)}
+.q .opt:focus-visible{outline:2px solid var(--accent)}
+.q .opt.picked{border-color:var(--ink)}
+.q .opt.right{border-color:var(--accent);background:rgba(11,138,131,.1)}
+.q .opt.wrong{border-color:var(--warn);background:rgba(200,98,30,.1)}
+.q .opt[disabled]{cursor:default}
+.conf{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.conf button{min-height:34px}
+.why{margin:0;font-size:14px;padding:8px 10px;background:var(--bg);border-radius:4px}
+.why b{font-family:var(--f-mono);font-size:11px;text-transform:uppercase;font-weight:500}
+.calib{font-family:var(--f-mono);font-size:12px;color:var(--muted);margin:0}
+
+textarea{width:100%;min-height:120px;padding:10px 12px;border:1px solid var(--line);border-radius:4px;background:var(--bg);font-family:var(--f-story);font-size:16px;line-height:1.5;resize:vertical}
+.thread{display:flex;flex-direction:column;gap:8px}
+.msg{padding:10px 12px;border-radius:4px;font-size:15px;white-space:pre-wrap}
+.msg.me{background:var(--bg);border:1px solid var(--line)}
+.msg.tutor{border-left:2px solid var(--accent);background:rgba(11,138,131,.08)}
+.msg .who{display:block;font-family:var(--f-mono);font-size:10px;text-transform:uppercase;color:var(--muted)}
+.checklist{margin:0;padding-left:20px;font-size:15px}
+
+.nav{position:sticky;bottom:0;display:flex;align-items:center;gap:10px;padding:10px 14px;border-top:1px solid var(--line);background:var(--panel);border-radius:0 0 6px 6px}
+.nav .mid{flex:1;text-align:center;font-family:var(--f-mono);font-size:11px;text-transform:uppercase;color:var(--muted);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nav .btn{min-width:92px}
+
+@media (max-width:960px){
+  body{padding-inline:12px;padding-block:8px calc(var(--navh) + 24px + env(safe-area-inset-bottom,0px))}
+  .brand h1{font-size:22px}
+  .brand span{display:none}
+  .status .hide-m{display:none}
+  #stopsBtn{display:inline-flex;min-height:36px;padding:4px 14px}
+  .status{order:3;width:100%;font-size:11px;gap:4px 12px}
+  .main{grid-template-columns:minmax(0,1fr);gap:10px}
+  .stage{top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:4px 6px;margin-inline:-12px;padding-inline:12px;gap:6px}
+  body.simmode .stage{position:static}
+  .scenebar{font-size:11px}
+  .scenebar .btn{min-height:34px;padding:5px 10px;font-size:14px}
+  .trail{display:none}
+  .trail.open{display:flex;position:fixed;inset:0;z-index:30;background:var(--bg);overflow-y:auto;padding:calc(env(safe-area-inset-top,0px) + 12px) 16px calc(env(safe-area-inset-bottom,0px) + 24px)}
+  .trail.open .sheethead{display:flex;justify-content:space-between;align-items:center;position:sticky;top:-12px;background:var(--bg);padding-block:8px;z-index:1}
+  .trail .sheethead h2{margin:0;font-family:var(--f-display);font-size:24px;text-transform:uppercase}
+  .act h3 .qq{display:block;text-transform:none;letter-spacing:0;font-family:var(--f-story);font-style:italic;font-size:14px;font-weight:400}
+  .chip{width:100%;min-height:44px;font-size:15px;border-radius:6px}
+  .chip .t{margin-left:auto}
+  .panel{border:none;background:transparent}
+  .steps{padding-inline:0}
+  .body{padding-inline:0}
+  .panel h2{font-size:28px}
+  .nav{position:fixed;left:0;right:0;bottom:0;z-index:20;border-radius:0;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));min-height:var(--navh);box-shadow:0 -6px 18px rgba(0,0,0,.08)}
+  .nav .btn{min-height:44px}
+  .ctl input[type=range]{width:120px}
+}
+@media (prefers-reduced-motion: reduce){.beat .s{transition:none}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand"><h1>Kepler Station</h1><span>mental models · 20-model pilot</span></div>
+    <button class="btn" id="stopsBtn" type="button" aria-controls="trail">Stops</button>
+    <div class="status" aria-label="Colony status">
+      <span class="hide-m">crew <b>200</b></span>
+      <span class="hide-m">O₂ reserve <b>6.0 t</b></span>
+      <span class="bad">short <b>≈50 kg/day</b></span>
+      <span>ship <b>T−90 d</b></span>
+      <span id="doneCount">learned <b>0/20</b></span>
+    </div>
+  </header>
+
+  <div class="main">
+    <section class="stage" aria-label="Colony scene">
+      <div class="canvasbox"><canvas id="scene" aria-label="Kepler Station colony with five shape characters"></canvas></div>
+      <div class="scenebar">
+        <span id="where">Tap a building to jump to its stop.</span>
+        <span style="display:flex;gap:6px;flex-wrap:wrap">
+          <button class="btn" id="simBtn" type="button">Station screen</button>
+          <button class="btn" id="overview" type="button">Whole colony</button>
+        </span>
+      </div>
+      <div class="simcontrols" id="simControls" hidden></div>
+      <nav class="trail" id="trail" aria-label="All stops"></nav>
+    </section>
+
+    <article class="panel" id="panel">
+      <div class="steps" id="steps" role="tablist" aria-label="Lesson steps"></div>
+      <div class="body" id="body" aria-live="polite"></div>
+      <div class="nav">
+        <button class="btn" id="navBack" type="button">Back</button>
+        <span class="mid" id="navMid"></span>
+        <button class="btn primary" id="navNext" type="button">Next</button>
+      </div>
+    </article>
+  </div>
+</div>

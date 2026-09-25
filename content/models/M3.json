@@ -41,13 +41,33 @@
     "kind": "hypothesis-branches",
     "settings": {
       "hypotheses": [
-        "Lamps dimming",
-        "Nutrient imbalance",
-        "Blight",
-        "Spectrum drift"
-      ],
-      "tests": true
-    }
+        {
+          "guess": "The lamps are dimming",
+          "predicts": "Light meters read lower than last month",
+          "result": "Light meters read normal",
+          "survives": false
+        },
+        {
+          "guess": "The nutrients are out of balance",
+          "predicts": "Leaf-tip burn on every rack, since they share one tank",
+          "result": "Only some racks are affected",
+          "survives": false
+        },
+        {
+          "guess": "A leaf blight is spreading",
+          "predicts": "Spots that spread outward from one cluster",
+          "result": "Spots cluster around rack 14",
+          "survives": true
+        },
+        {
+          "guess": "The new lamp batch drifted in colour",
+          "predicts": "A spectrum shift in batch 7 only",
+          "result": "Batch 7 is shifted toward blue; older batches are fine",
+          "survives": true
+        }
+      ]
+    },
+    "try": "Tap a guess to run the test that could prove it wrong."
   },
   "realCase": {
     "kind": "failure",

@@ -47,7 +47,8 @@
         "O2 measured at outlet"
       ],
       "showIntendedVsActual": true
-    }
+    },
+    "try": null
   },
   "realCase": {
     "kind": "failure",

@@ -43,7 +43,8 @@
       "root": "Release blight-eating beetles",
       "depth": 3,
       "revealOnClick": true
-    }
+    },
+    "try": null
   },
   "realCase": {
     "kind": "failure",

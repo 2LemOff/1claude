@@ -46,7 +46,8 @@
       "pointsPerPanel": 30,
       "alpha": 0.05,
       "button": "Reshuffle and hunt for 'patterns'"
-    }
+    },
+    "try": "Reshuffle a few times and count the 'patterns' in pure noise. Then retest the flagged ones on new data."
   },
   "realCase": {
     "kind": "failure",

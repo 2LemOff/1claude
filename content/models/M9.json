@@ -47,7 +47,8 @@
         "Single person held codes",
         "No night monitoring"
       ]
-    }
+    },
+    "try": null
   },
   "realCase": {
     "kind": "failure",

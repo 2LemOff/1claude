@@ -57,7 +57,8 @@
         ]
       ],
       "toggleRandomise": true
-    }
+    },
+    "try": null
   },
   "realCase": {
     "kind": "failure",

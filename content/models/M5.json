@@ -40,19 +40,38 @@
     "type": "diagram",
     "kind": "decomposition-tree",
     "settings": {
-      "root": "Oxygen falling",
+      "root": "Oxygen is falling",
       "branches": [
-        "Production",
-        "Storage",
-        "Consumption",
-        "Leaks"
+        {
+          "label": "Storage",
+          "check": "Tank gauges match the weigh-in",
+          "culprit": false
+        },
+        {
+          "label": "Consumption",
+          "check": "Steady at about 168 kg a day",
+          "culprit": false
+        },
+        {
+          "label": "Leaks",
+          "check": "Pressure test normal",
+          "culprit": false
+        },
+        {
+          "label": "Production",
+          "check": "Greenhouse output down 1% a day",
+          "culprit": true
+        }
       ],
-      "eliminate": [
-        "Storage",
-        "Consumption",
-        "Leaks"
-      ]
-    }
+      "children": [
+        "Lamps",
+        "Plants",
+        "Nutrients",
+        "Air flow"
+      ],
+      "next": "Stop 4 tests these one by one."
+    },
+    "try": "Tap each branch to run its check. Rule parts out until one is left."
   },
   "realCase": {
     "kind": "success",

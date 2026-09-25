@@ -51,7 +51,8 @@
       ],
       "rounds": 10,
       "noise": 0.05
-    }
+    },
+    "try": null
   },
   "realCase": {
     "kind": "failure",

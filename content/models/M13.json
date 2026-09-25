@@ -40,18 +40,13 @@
     "type": "diagram",
     "kind": "estimate-chain",
     "settings": {
-      "factors": [
-        [
-          "colonists",
-          200
-        ],
-        [
-          "kg O2 per person per day",
-          0.84
-        ]
-      ],
-      "showLogScale": true
-    }
+      "colonists": 200,
+      "kgPerPerson": 0.84,
+      "greenhouseShare": 0.7,
+      "storageKg": 6000,
+      "shipDays": 90
+    },
+    "try": "Change the guesses. How wrong can each one be before the answer flips from 'we make it' to 'we don't'?"
   },
   "realCase": {
     "kind": "success",

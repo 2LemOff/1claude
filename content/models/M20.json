@@ -55,7 +55,8 @@
         "safety margin",
         "comfort"
       ]
-    }
+    },
+    "try": "Give the greenhouse lamps more power. Which other need goes short?"
   },
   "realCase": {
     "kind": "failure",

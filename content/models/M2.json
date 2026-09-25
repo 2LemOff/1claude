@@ -50,7 +50,8 @@
         "sensitivity",
         "falsePositiveRate"
       ]
-    }
+    },
+    "try": "Set 'infected' to 20%. Does a positive test mean more or less now? Then set false alarms to 0."
   },
   "realCase": {
     "kind": "failure",

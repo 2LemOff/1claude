@@ -50,7 +50,8 @@
         "exponential",
         "logistic"
       ]
-    }
+    },
+    "try": "Compare your gut line with the S-curve at day 10 and day 20. Then change the doubling time."
   },
   "realCase": {
     "kind": "failure",

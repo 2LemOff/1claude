@@ -2,10 +2,14 @@
 
 Published app: https://claude.ai/artifact/53GUtPYqGo4hvxETmAfXum
 
-- `template.html`: the engine (colony scene, shape cast, station-screen simulations, lesson panel).
-- `build.py`: inlines `content/*.json` into the template, producing `dist/kepler-station.html`, which is the file published as the Claude Artifact.
+- `src/head.html`: page styles and layout (the desktop layout and the phone layout: pinned scene, bottom Back/Next bar, Stops sheet).
+- `src/engine.js`: the colony scene, camera, shape cast and drawing helpers.
+- `src/sims.js`: dots and flow station screens. `src/diagrams.js`: tap-to-explore diagram screens.
+- `src/lesson.js`: the 8-step lesson, progress saving (Artifact database `progress/<model id>`, with a copy in the browser) and the Socratic tutor (Claude via the `sample` capability).
+- `build.py`: joins the sources, inlines `content/*.json` and writes `dist/kepler-station.html`, which is published with capabilities `{db:{}, sample:{}}`.
 
 Rebuild after any content or template change: `python3 app/build.py`, then republish `dist/kepler-station.html`.
 
-Status (build step 2): scene, cast, story stepper, and the dots and flow screens for M2, M6, M7, M8, M11, M14, M15, M17 and M20 are done.
-Diagram screens are coming in step 3, and agent-world screens (M16, M18, M19) in step 5.
+Status (build step 3): all 20 stops have the 8-step lesson (Predict, Story, Simulate, Name it, Elsewhere, Failure, Explain, Review).
+Station screens work for 13 models: M1, M2, M3, M5, M6, M7, M8, M11, M13, M14, M15, M17 and M20.
+Still to come: diagram screens for M4, M9, M10 and M12, and agent-world screens for M16, M18 and M19 (step 5).

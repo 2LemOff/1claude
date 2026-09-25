@@ -50,7 +50,8 @@
         "concrete absorbing CO2"
       ],
       "toggleHiddenFactors": true
-    }
+    },
+    "try": "Add the two missing factors to the model and watch it catch up with reality."
   },
   "realCase": {
     "kind": "failure",

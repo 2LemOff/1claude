@@ -47,7 +47,8 @@
         "sensorDelayHours",
         "gain"
       ]
-    }
+    },
+    "try": "Set the sensor delay to 0, then to 12. What changes?"
   },
   "realCase": {
     "kind": "failure",
