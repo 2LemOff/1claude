@@ -1,0 +1,114 @@
+{
+  "id": "M5",
+  "name": "Decompose and transform",
+  "aliases": [
+    "Pólya's How to Solve It",
+    "Divide and conquer"
+  ],
+  "originator": "George Pólya",
+  "year": "1945",
+  "evidence": "method",
+  "category": "Thinking moves",
+  "rule": "Restate the problem, solve a smaller or special case, work backwards from the goal, or reuse a solved problem that has the same unknown.",
+  "plain": "If a problem is too big, cut it into parts or change its shape until it looks like one you've solved before.",
+  "story": {
+    "act": 1,
+    "trail": 3,
+    "location": "lifesupport",
+    "cast": [
+      "ada",
+      "you",
+      "mira"
+    ],
+    "beat": "'The oxygen problem' is too big to attack. You split it into production (greenhouse), storage (tanks), consumption (people) and leaks (the hull). Leak checks come back normal and consumption is steady, so the problem shrinks to one location: the Greenhouse Dome. Then you solve a smaller case, one crop rack, before tackling all 400."
+  },
+  "examples": [
+    {
+      "location": "power",
+      "text": "A blackout traced to 'the grid' becomes easy once it's split into generation, transmission and load. It's a single tripped breaker."
+    },
+    {
+      "location": "clinic",
+      "text": "Dox works backwards from the goal: 'What would have to be true for this patient to recover?' That points to the one missing test."
+    },
+    {
+      "location": "docks",
+      "text": "Scheduling 30 cargo drones is hard. Scheduling 3 is easy, and the pattern from 3 scales up."
+    }
+  ],
+  "sim": {
+    "type": "diagram",
+    "kind": "decomposition-tree",
+    "settings": {
+      "root": "Oxygen falling",
+      "branches": [
+        "Production",
+        "Storage",
+        "Consumption",
+        "Leaks"
+      ],
+      "eliminate": [
+        "Storage",
+        "Consumption",
+        "Leaks"
+      ]
+    }
+  },
+  "realCase": {
+    "kind": "success",
+    "title": "Apollo 13's square filter in a round hole",
+    "year": 1970,
+    "text": "Carbon dioxide was building up in the lunar module, and the command module's square scrubber canisters didn't fit its round sockets. Ground engineers restated the problem as 'connect this shape to that one using only what's on board', built an adapter from plastic bags, cardboard and tape, and talked the crew through making it.",
+    "source": "NASA, Apollo 13 Review Board report (1970)"
+  },
+  "misuse": "Splitting a problem whose parts interact strongly. Optimising each piece separately can break the whole (see feedback loops, M14).",
+  "related": [
+    "M1",
+    "M13",
+    "M9",
+    "M14"
+  ],
+  "sources": [
+    "George Pólya, How to Solve It (1945)"
+  ],
+  "quiz": {
+    "predict": {
+      "prompt": "Oxygen is falling. Which first move narrows the problem fastest?",
+      "options": [
+        "Replace all the plants",
+        "Check each part (production, storage, consumption, leaks) and rule parts out",
+        "Ask Earth",
+        "Reduce everyone's activity"
+      ],
+      "answer": 1,
+      "why": "Ruling parts out shrinks the search space. Guessing at the whole doesn't."
+    },
+    "mcq": [
+      {
+        "prompt": "Which is NOT one of Pólya's moves?",
+        "options": [
+          "Solve a special case",
+          "Work backwards",
+          "Find a related solved problem",
+          "Pick the answer that feels right"
+        ],
+        "answer": 3,
+        "why": "Pólya's heuristics are deliberate transformations, not gut picks."
+      }
+    ],
+    "whichModel": {
+      "prompt": "A programmer can't find a bug, so she deletes half the code path and checks whether the bug remains, and repeats.",
+      "options": [
+        "Decompose and transform",
+        "Inversion",
+        "Signal vs. noise",
+        "First principles"
+      ],
+      "answer": 0,
+      "why": "Bisection is decomposition: shrink the problem until the cause is isolated."
+    }
+  },
+  "formula": null,
+  "videos": [],
+  "evidenceLabel": "🧭 method or rule of thumb"
+}

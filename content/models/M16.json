@@ -1,0 +1,109 @@
+{
+  "id": "M16",
+  "name": "Incentives",
+  "aliases": [
+    "Principal–agent problem",
+    "Perverse incentives",
+    "Cobra effect"
+  ],
+  "originator": "Adam Smith (1776); modern principal–agent theory (1970s)",
+  "year": "1776 / 1970s",
+  "evidence": "strong",
+  "category": "Recurring patterns",
+  "rule": "People and institutions follow what's rewarded, not what's intended. Before assuming malice, check the incentives and what information people had.",
+  "plain": "Show me how someone is paid, and I'll show you how they'll behave.",
+  "story": {
+    "act": 4,
+    "trail": 18,
+    "location": "market",
+    "cast": [
+      "rook",
+      "mira",
+      "you"
+    ],
+    "beat": "To speed recovery, the council pays a bonus per kilogram of harvested greens. Harvests jump, and oxygen drops. The crew is picking plants young and heavy with water, before they've produced much oxygen. Nobody cheated; they did exactly what was paid for. You rewrite the bonus: pay per litre of oxygen measured at the dome's outlet."
+  },
+  "examples": [
+    {
+      "location": "clinic",
+      "text": "Dox is paid per visit, so appointments get shorter and more frequent. Nobody planned that."
+    },
+    {
+      "location": "mine",
+      "text": "Miners paid per tonne ignore safety checks. Adding a bonus for injury-free months changes behaviour within weeks."
+    },
+    {
+      "location": "council",
+      "text": "Councillors elected every 6 months favour quick fixes over the 10-year oxygen plan."
+    }
+  ],
+  "sim": {
+    "type": "agents",
+    "kind": "reward-rule",
+    "settings": {
+      "agents": 30,
+      "rewardOptions": [
+        "kg harvested",
+        "O2 measured at outlet"
+      ],
+      "showIntendedVsActual": true
+    }
+  },
+  "realCase": {
+    "kind": "failure",
+    "title": "The Hanoi rat bounty",
+    "year": 1902,
+    "text": "French colonial authorities in Hanoi paid a bounty for each rat tail to fight plague. Officials soon saw tailless rats running the streets: people cut off tails and let the rats go on breeding. Some even farmed rats for the bounty.",
+    "source": "Michael G. Vann, 'Of Rats, Rice, and Race', French Colonial History 4 (2003)"
+  },
+  "misuse": "Assuming incentives explain everything and ignoring values, habits and identity. People also act from duty and pride, and poorly designed pay can crowd those out.",
+  "related": [
+    "M19",
+    "M10",
+    "M20"
+  ],
+  "sources": [
+    "Steven Levitt & Stephen Dubner, Freakonomics (2005)",
+    "Charlie Munger, 'The Psychology of Human Misjudgment' (1995)"
+  ],
+  "quiz": {
+    "predict": {
+      "prompt": "The council pays per kg of greens harvested. What happens to oxygen output?",
+      "options": [
+        "It rises",
+        "It may fall as the crew harvests young, heavy plants early",
+        "No change",
+        "It doubles"
+      ],
+      "answer": 1,
+      "why": "People optimise the paid metric, not the goal."
+    },
+    "mcq": [
+      {
+        "prompt": "The Hanoi rat bounty backfired because…",
+        "options": [
+          "rats were immune",
+          "tails were rewarded, not dead rats, so people bred rats",
+          "no one participated",
+          "the price was too low"
+        ],
+        "answer": 1,
+        "why": "The reward measured tails, not fewer rats."
+      }
+    ],
+    "whichModel": {
+      "prompt": "A bank sets high sales targets; employees open millions of fake accounts.",
+      "options": [
+        "Incentives",
+        "Fat tails",
+        "Chaos",
+        "Regression to the mean"
+      ],
+      "answer": 0,
+      "why": "They followed the reward, not the intention."
+    }
+  },
+  "formula": null,
+  "videos": [],
+  "evidenceLabel": "🔬 strong evidence"
+}

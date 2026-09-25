@@ -1,0 +1,112 @@
+{
+  "id": "M13",
+  "name": "Fermi estimation",
+  "aliases": [
+    "Order-of-magnitude estimate",
+    "Back-of-the-envelope"
+  ],
+  "originator": "Enrico Fermi",
+  "year": "1940s",
+  "evidence": "method",
+  "category": "Thinking moves",
+  "rule": "Build a rough number from quantities you already know. The right order of magnitude often settles whether an idea is even possible.",
+  "plain": "Split the unknown into a chain of things you can guess, multiply them together, and keep only the first digit and the number of zeros.",
+  "formula": "200 people × 0.84 kg O₂/day ≈ 170 kg O₂/day",
+  "story": {
+    "act": 1,
+    "trail": 2,
+    "location": "lifesupport",
+    "cast": [
+      "you",
+      "ada"
+    ],
+    "beat": "Ada asks 'How long do we have?' Nobody has an exact model. You estimate: 200 people × about 0.84 kg a day ≈ 170 kg a day. The tanks hold about 6 tonnes, and the greenhouse still covers about 70% of demand. That leaves a shortfall of about 50 kg a day, so roughly 120 days. The ship is 90 days out. It's tight, but you can survive it, and that one number stops the panic."
+  },
+  "examples": [
+    {
+      "location": "greenhouse",
+      "text": "How many crop racks would full oxygen independence take? Rack area × yield per m² gives an answer within a factor of 3, which is enough to know if it fits in the dome."
+    },
+    {
+      "location": "mine",
+      "text": "Is mining ice for oxygen worth it? Energy per kg of electrolysis × kg needed, compared with the power plant's output, shows it's possible but would use half the plant."
+    },
+    {
+      "location": "habitat",
+      "text": "How many conversations spread a rumour through 200 people in a day? A few contacts each, over a few hours, is enough for everyone by evening."
+    }
+  ],
+  "sim": {
+    "type": "diagram",
+    "kind": "estimate-chain",
+    "settings": {
+      "factors": [
+        [
+          "colonists",
+          200
+        ],
+        [
+          "kg O2 per person per day",
+          0.84
+        ]
+      ],
+      "showLogScale": true
+    }
+  },
+  "realCase": {
+    "kind": "success",
+    "title": "Fermi's paper strips at Trinity",
+    "year": 1945,
+    "text": "At the first atomic test, Fermi dropped scraps of paper as the blast wave passed and paced out how far they moved. His estimate of about 10 kilotons was the right order of magnitude of the measured yield, roughly 20 kilotons, and he had it within seconds.",
+    "source": "Los Alamos National Laboratory historical records; Fermi's handwritten Trinity report"
+  },
+  "misuse": "Treating a rough estimate as precise, or stacking so many guesses that the errors compound. Say 'about 100', not '112.4'.",
+  "related": [
+    "M1",
+    "M5",
+    "M15"
+  ],
+  "sources": [
+    "Lawrence Weinstein & John Adam, Guesstimation (2008)",
+    "NASA Baseline Values and Assumptions Document (crew O2 consumption ≈ 0.84 kg/day)"
+  ],
+  "quiz": {
+    "predict": {
+      "prompt": "Oxygen shortfall is 50 kg/day and storage is 6,000 kg. Roughly how many days until empty?",
+      "options": [
+        "about 12",
+        "about 120",
+        "about 1,200",
+        "impossible to say"
+      ],
+      "answer": 1,
+      "why": "6,000 ÷ 50 = 120. The order of magnitude is what matters."
+    },
+    "mcq": [
+      {
+        "prompt": "A Fermi estimate is 'good' if it is…",
+        "options": [
+          "exact",
+          "within about a factor of 10 or better, and it changes the decision",
+          "sourced from an expert",
+          "under 5% error"
+        ],
+        "answer": 1,
+        "why": "Its job is to decide whether something is possible, not to replace measurement."
+      }
+    ],
+    "whichModel": {
+      "prompt": "Before building a product, a founder multiplies possible customers × share who'd pay × price and finds the market is tiny.",
+      "options": [
+        "Fermi estimation",
+        "Bayesian updating",
+        "Expected value",
+        "Bottlenecks"
+      ],
+      "answer": 0,
+      "why": "A chain of rough known quantities, used to test whether the idea is viable."
+    }
+  },
+  "videos": [],
+  "evidenceLabel": "🧭 method or rule of thumb"
+}

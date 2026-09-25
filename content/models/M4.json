@@ -1,0 +1,118 @@
+{
+  "id": "M4",
+  "name": "Causal thinking",
+  "aliases": [
+    "Correlation is not causation",
+    "Confounding"
+  ],
+  "originator": "Judea Pearl (formal causal inference); R. A. Fisher (randomised trials)",
+  "year": "1935 / 2000",
+  "evidence": "proven",
+  "category": "Thinking moves",
+  "rule": "Correlation isn't causation. Rule out chance, reverse causation and hidden common causes, then ask what would change if you intervened.",
+  "plain": "Two things moving together doesn't mean one pushes the other. Ask what would happen if you changed one on purpose.",
+  "formula": "P(Y | do(X)) ≠ P(Y | X)",
+  "story": {
+    "act": 2,
+    "trail": 6,
+    "location": "greenhouse",
+    "cast": [
+      "mira",
+      "dox",
+      "you"
+    ],
+    "beat": "Mira notices that racks the crew visit most are the healthiest, and proposes more visits. You draw three arrows. Maybe visits cause health. Maybe healthy racks attract visits (they're the ones being harvested). Maybe racks near the door get both more visits and better air. Dox runs a real test: randomly chosen racks get extra visits. There's no difference. The door's air flow was the hidden cause."
+  },
+  "examples": [
+    {
+      "location": "clinic",
+      "text": "Colonists who take vitamin packs are healthier, but they also exercise more. A random trial is the only way to know if the pack does anything."
+    },
+    {
+      "location": "market",
+      "text": "Stalls with more signs sell more. Do signs cause sales, or do rich stall owners buy both signs and stock?"
+    },
+    {
+      "location": "habitat",
+      "text": "Homes with more fans have more heat complaints. The fans don't cause heat; hot homes buy fans. That's reverse causation."
+    }
+  ],
+  "sim": {
+    "type": "diagram",
+    "kind": "causal-graph",
+    "settings": {
+      "nodes": [
+        "Crew visits",
+        "Rack health",
+        "Door airflow"
+      ],
+      "edges": [
+        [
+          "Door airflow",
+          "Crew visits"
+        ],
+        [
+          "Door airflow",
+          "Rack health"
+        ]
+      ],
+      "toggleRandomise": true
+    }
+  },
+  "realCase": {
+    "kind": "failure",
+    "title": "Hormone replacement therapy and the heart",
+    "year": 2002,
+    "text": "Observational studies found women taking hormone therapy had fewer heart attacks, so it was widely prescribed for prevention. The randomised Women's Health Initiative trial found the estrogen-plus-progestin arm had more heart disease, not less. The women who chose hormones had been healthier and wealthier to begin with.",
+    "source": "Writing Group for the WHI Investigators, JAMA 288 (2002)"
+  },
+  "misuse": "Refusing to act until you have perfect causal proof. Sometimes a strong, consistent correlation plus a plausible mechanism is enough to act on, as with smoking and lung cancer.",
+  "related": [
+    "M2",
+    "M3",
+    "M7"
+  ],
+  "sources": [
+    "Judea Pearl & Dana Mackenzie, The Book of Why (2018)",
+    "Austin Bradford Hill, 'The Environment and Disease' (1965)"
+  ],
+  "quiz": {
+    "predict": {
+      "prompt": "Most-visited racks are healthiest. What's the best next step?",
+      "options": [
+        "Double visits everywhere",
+        "Randomly assign extra visits to some racks and compare",
+        "Stop visiting",
+        "Ask the crew what they think"
+      ],
+      "answer": 1,
+      "why": "Randomising breaks hidden common causes."
+    },
+    "mcq": [
+      {
+        "prompt": "Hot homes buying more fans is an example of…",
+        "options": [
+          "confounding",
+          "reverse causation",
+          "chance",
+          "regression"
+        ],
+        "answer": 1,
+        "why": "The effect (heat) causes the 'cause' (fans)."
+      }
+    ],
+    "whichModel": {
+      "prompt": "Cities with more firefighters have more fire damage, and a reporter concludes firefighters cause damage.",
+      "options": [
+        "Causal thinking",
+        "Incentives",
+        "Fat tails",
+        "Selection effects"
+      ],
+      "answer": 0,
+      "why": "A common cause (big fires) drives both."
+    }
+  },
+  "videos": [],
+  "evidenceLabel": "✅ proven (math/logic)"
+}

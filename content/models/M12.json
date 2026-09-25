@@ -1,0 +1,107 @@
+{
+  "id": "M12",
+  "name": "Hard-to-vary explanations + Occam's razor",
+  "aliases": [
+    "Good explanations",
+    "Parsimony"
+  ],
+  "originator": "David Deutsch; William of Ockham",
+  "year": "2011 / c. 1320s",
+  "evidence": "method",
+  "category": "Thinking moves",
+  "rule": "Prefer explanations where every part does work and fewer assumptions are needed. An explanation that fits any outcome explains nothing.",
+  "plain": "A good explanation would break if you changed its details. A vague one bends to fit anything, so it predicts nothing.",
+  "story": {
+    "act": 2,
+    "trail": 8,
+    "location": "habitat",
+    "cast": [
+      "mira",
+      "you",
+      "ada"
+    ],
+    "beat": "Two explanations circulate in the Habitat Ring. One: 'the dome is unlucky; the soil is tired.' Two: 'the new LED batch has drifted toward blue, which stresses this crop and lets blight in.' The first fits any outcome. The second names a batch, a wavelength and a crop, and predicts that the old-batch racks are fine. They are."
+  },
+  "examples": [
+    {
+      "location": "power",
+      "text": "'Gremlins' explain every outage. A 'thermal fuse rated too low' explains exactly the afternoon outages, and nothing else."
+    },
+    {
+      "location": "clinic",
+      "text": "Two diagnoses fit the symptoms. One needs a single cause; the other needs three rare coincidences. Test the single cause first."
+    },
+    {
+      "location": "council",
+      "text": "A councillor blames 'bad morale' for everything. When an explanation can't be wrong, it can't guide action either."
+    }
+  ],
+  "sim": {
+    "type": "diagram",
+    "kind": "explanation-flex",
+    "settings": {
+      "explanations": [
+        "The dome is unlucky",
+        "Blue-shifted LED batch stresses crop"
+      ],
+      "dragOutcome": true
+    }
+  },
+  "realCase": {
+    "kind": "failure",
+    "title": "Epicycles",
+    "year": "2nd century to 1609",
+    "text": "Ptolemy's Earth-centred astronomy could fit any new planetary observation by adding another circle on a circle. It was endlessly adjustable, so it explained little. Kepler's ellipses (1609) were hard to vary: change one parameter and the predictions visibly break.",
+    "source": "Thomas Kuhn, The Copernican Revolution (1957)"
+  },
+  "misuse": "Using Occam's razor to reject a true but messy cause. Reality is sometimes complicated, and simplest-first is a search order, not a verdict.",
+  "related": [
+    "M3",
+    "M11",
+    "M2"
+  ],
+  "sources": [
+    "David Deutsch, The Beginning of Infinity (2011), ch. 1",
+    "Elliott Sober, Ockham's Razors (2015)"
+  ],
+  "quiz": {
+    "predict": {
+      "prompt": "Which explanation is better? A: 'The dome is unlucky.' B: 'LED batch 7 drifted blue and stresses lettuce.'",
+      "options": [
+        "A, because it's simpler",
+        "B, because it makes specific predictions that could fail",
+        "Both equal",
+        "Neither"
+      ],
+      "answer": 1,
+      "why": "Simple in words isn't the same as good. B is hard to vary and testable."
+    },
+    "mcq": [
+      {
+        "prompt": "An explanation that fits every possible outcome is…",
+        "options": [
+          "very strong",
+          "useless for prediction",
+          "proven",
+          "Bayesian"
+        ],
+        "answer": 1,
+        "why": "If nothing could contradict it, it tells you nothing."
+      }
+    ],
+    "whichModel": {
+      "prompt": "A horoscope's 'you may face challenges this week' is true whatever happens.",
+      "options": [
+        "Hard-to-vary explanations",
+        "Regression to the mean",
+        "Incentives",
+        "First principles"
+      ],
+      "answer": 0,
+      "why": "It's easy to vary, so it's not a real explanation."
+    }
+  },
+  "formula": null,
+  "videos": [],
+  "evidenceLabel": "🧭 method or rule of thumb"
+}

@@ -1,0 +1,110 @@
+{
+  "id": "M3",
+  "name": "Conjecture and refutation",
+  "aliases": [
+    "Falsification",
+    "Hypothesis testing"
+  ],
+  "originator": "Karl Popper",
+  "year": "1934 / 1963",
+  "evidence": "method",
+  "category": "Thinking moves",
+  "rule": "Guess, work out what else must follow if the guess is true, then test that consequence and try hard to prove yourself wrong.",
+  "plain": "Don't look for evidence that you're right. Look for the test that would embarrass your idea, and run it.",
+  "story": {
+    "act": 2,
+    "trail": 4,
+    "location": "greenhouse",
+    "cast": [
+      "mira",
+      "ada",
+      "you"
+    ],
+    "beat": "Mira is sure the lamps are dimming. You ask: 'If that's true, what else must be true?' The light meters should show lower output. They don't; brightness is normal. But the colour spectrum has drifted. The first guess dies and a better one is born."
+  },
+  "examples": [
+    {
+      "location": "clinic",
+      "text": "Dox suspects a contaminated water filter. If that's true, every household on that filter should show symptoms. Only some do, so the idea needs revising."
+    },
+    {
+      "location": "power",
+      "text": "Ada believes a cable is overheating. She predicts one exact spot will be hot, points a thermal camera at it, and it is. A risky prediction survived."
+    },
+    {
+      "location": "council",
+      "text": "A councillor claims the curfew reduced accidents. Asking 'what else would we see?' shows accidents also fell in areas without the curfew."
+    }
+  ],
+  "sim": {
+    "type": "diagram",
+    "kind": "hypothesis-branches",
+    "settings": {
+      "hypotheses": [
+        "Lamps dimming",
+        "Nutrient imbalance",
+        "Blight",
+        "Spectrum drift"
+      ],
+      "tests": true
+    }
+  },
+  "realCase": {
+    "kind": "failure",
+    "title": "N-rays",
+    "year": 1903,
+    "text": "French physicist René Blondlot reported a new kind of radiation, and dozens of scientists confirmed seeing it. In 1904 Robert Wood visited the lab and secretly removed the essential prism. Blondlot still 'saw' the rays. The experimenters had looked for confirmation, never for refutation.",
+    "source": "R. W. Wood, 'The n-Rays', Nature 70 (1904)"
+  },
+  "misuse": "Throwing out a good theory at the first anomaly. Measurements can be wrong too, so check the test before killing the idea.",
+  "related": [
+    "M12",
+    "M2",
+    "M4",
+    "M7"
+  ],
+  "sources": [
+    "Karl Popper, The Logic of Scientific Discovery (1934/1959)",
+    "Karl Popper, Conjectures and Refutations (1963)"
+  ],
+  "quiz": {
+    "predict": {
+      "prompt": "Mira is sure the lamps are the problem. What's the strongest test?",
+      "options": [
+        "Ask other botanists if they agree",
+        "Find a measurement that would come out differently if she were wrong",
+        "List all past lamp failures",
+        "Replace the lamps and see"
+      ],
+      "answer": 1,
+      "why": "A test is only informative if it could fail."
+    },
+    "mcq": [
+      {
+        "prompt": "Why did so many scientists 'see' N-rays?",
+        "options": [
+          "The rays were real but faint",
+          "They expected to see them and never ran a test that could fail",
+          "Their instruments were broken",
+          "Fraud"
+        ],
+        "answer": 1,
+        "why": "Expectation plus no disconfirming test produced shared false confirmation."
+      }
+    ],
+    "whichModel": {
+      "prompt": "An investor believes a company is great, so she writes down what would prove her wrong before buying and checks it every quarter.",
+      "options": [
+        "Conjecture and refutation",
+        "Sunk cost",
+        "Outside view",
+        "Incentives"
+      ],
+      "answer": 0,
+      "why": "She commits to refutation conditions in advance."
+    }
+  },
+  "formula": null,
+  "videos": [],
+  "evidenceLabel": "🧭 method or rule of thumb"
+}

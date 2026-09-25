@@ -1,0 +1,207 @@
+{
+  "pilot": "20 models",
+  "trail": [
+    "M1",
+    "M13",
+    "M5",
+    "M3",
+    "M2",
+    "M4",
+    "M7",
+    "M12",
+    "M8",
+    "M11",
+    "M6",
+    "M15",
+    "M14",
+    "M18",
+    "M10",
+    "M9",
+    "M17",
+    "M16",
+    "M19",
+    "M20"
+  ],
+  "models": [
+    {
+      "id": "M1",
+      "name": "First principles",
+      "act": 1,
+      "trail": 1,
+      "location": "lifesupport",
+      "sim": "diagram",
+      "evidence": "method"
+    },
+    {
+      "id": "M13",
+      "name": "Fermi estimation",
+      "act": 1,
+      "trail": 2,
+      "location": "lifesupport",
+      "sim": "diagram",
+      "evidence": "method"
+    },
+    {
+      "id": "M5",
+      "name": "Decompose and transform",
+      "act": 1,
+      "trail": 3,
+      "location": "lifesupport",
+      "sim": "diagram",
+      "evidence": "method"
+    },
+    {
+      "id": "M3",
+      "name": "Conjecture and refutation",
+      "act": 2,
+      "trail": 4,
+      "location": "greenhouse",
+      "sim": "diagram",
+      "evidence": "method"
+    },
+    {
+      "id": "M2",
+      "name": "Bayesian updating",
+      "act": 2,
+      "trail": 5,
+      "location": "clinic",
+      "sim": "dots",
+      "evidence": "proven"
+    },
+    {
+      "id": "M4",
+      "name": "Causal thinking",
+      "act": 2,
+      "trail": 6,
+      "location": "greenhouse",
+      "sim": "diagram",
+      "evidence": "proven"
+    },
+    {
+      "id": "M7",
+      "name": "Signal vs. noise",
+      "act": 2,
+      "trail": 7,
+      "location": "lifesupport",
+      "sim": "dots",
+      "evidence": "proven"
+    },
+    {
+      "id": "M12",
+      "name": "Hard-to-vary explanations + Occam's razor",
+      "act": 2,
+      "trail": 8,
+      "location": "habitat",
+      "sim": "diagram",
+      "evidence": "method"
+    },
+    {
+      "id": "M8",
+      "name": "When to trust intuition",
+      "act": 2,
+      "trail": 9,
+      "location": "greenhouse",
+      "sim": "dots",
+      "evidence": "strong"
+    },
+    {
+      "id": "M11",
+      "name": "Map ≠ territory",
+      "act": 2,
+      "trail": 10,
+      "location": "comms",
+      "sim": "flow",
+      "evidence": "proven"
+    },
+    {
+      "id": "M6",
+      "name": "Same structure, same solution",
+      "act": 2,
+      "trail": 11,
+      "location": "clinic",
+      "sim": "dots",
+      "evidence": "proven"
+    },
+    {
+      "id": "M15",
+      "name": "Exponentials and S-curves",
+      "act": 3,
+      "trail": 12,
+      "location": "greenhouse",
+      "sim": "flow",
+      "evidence": "proven"
+    },
+    {
+      "id": "M14",
+      "name": "Feedback loops",
+      "act": 3,
+      "trail": 13,
+      "location": "lifesupport",
+      "sim": "flow",
+      "evidence": "strong"
+    },
+    {
+      "id": "M18",
+      "name": "Evolution by selection",
+      "act": 3,
+      "trail": 14,
+      "location": "greenhouse",
+      "sim": "agents",
+      "evidence": "strong"
+    },
+    {
+      "id": "M10",
+      "name": "Second-order thinking",
+      "act": 3,
+      "trail": 15,
+      "location": "council",
+      "sim": "diagram",
+      "evidence": "method"
+    },
+    {
+      "id": "M9",
+      "name": "Inversion",
+      "act": 3,
+      "trail": 16,
+      "location": "council",
+      "sim": "diagram",
+      "evidence": "method"
+    },
+    {
+      "id": "M17",
+      "name": "Normal vs. fat-tailed distributions",
+      "act": 3,
+      "trail": 17,
+      "location": "lifesupport",
+      "sim": "dots",
+      "evidence": "strong"
+    },
+    {
+      "id": "M16",
+      "name": "Incentives",
+      "act": 4,
+      "trail": 18,
+      "location": "market",
+      "sim": "agents",
+      "evidence": "strong"
+    },
+    {
+      "id": "M19",
+      "name": "Game theory",
+      "act": 4,
+      "trail": 19,
+      "location": "council",
+      "sim": "agents",
+      "evidence": "proven"
+    },
+    {
+      "id": "M20",
+      "name": "Trade-offs and opportunity cost",
+      "act": 4,
+      "trail": 20,
+      "location": "power",
+      "sim": "flow",
+      "evidence": "proven"
+    }
+  ]
+}

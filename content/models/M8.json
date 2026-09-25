@@ -1,0 +1,112 @@
+{
+  "id": "M8",
+  "name": "When to trust intuition",
+  "aliases": [
+    "Intuitive expertise",
+    "Kahneman & Klein conditions"
+  ],
+  "originator": "Daniel Kahneman & Gary Klein",
+  "year": "2009",
+  "evidence": "strong",
+  "category": "Thinking moves",
+  "rule": "Gut pattern-matching becomes reliable only with lots of practice and fast, clear feedback. It stays unreliable where feedback is slow or noisy.",
+  "plain": "Trust an expert's hunch in a field where they've been corrected thousands of times. Don't trust it where the world never told them they were wrong.",
+  "story": {
+    "act": 2,
+    "trail": 9,
+    "location": "greenhouse",
+    "cast": [
+      "mira",
+      "rook",
+      "you"
+    ],
+    "beat": "Mira walks the racks and points: 'Those three are next.' Rook scoffs. But Mira has had 12 years of daily, visible feedback on leaf colour, so her eye is trained. You mark her picks; two days later all three show blight. Then Mira predicts the colony's economy will crash. She's never been tested on that, so her gut gets no special weight there."
+  },
+  "examples": [
+    {
+      "location": "power",
+      "text": "Ada can hear a failing bearing. She's been confirmed hundreds of times, with fast feedback, so her hunch is reliable."
+    },
+    {
+      "location": "market",
+      "text": "A trader 'feels' prices will rise. Markets give noisy, delayed feedback, so the hunch has little track record."
+    },
+    {
+      "location": "clinic",
+      "text": "Dox's snap read of a rash is excellent; her guess about which treatment will work in five years is not."
+    }
+  ],
+  "sim": {
+    "type": "dots",
+    "kind": "feedback-quality-grid",
+    "settings": {
+      "axes": [
+        "practice volume",
+        "feedback speed & clarity"
+      ],
+      "plotExperts": [
+        "Mira (leaves)",
+        "Ada (bearings)",
+        "Trader (prices)",
+        "Mira (economy)"
+      ]
+    }
+  },
+  "realCase": {
+    "kind": "failure",
+    "title": "Clinical vs. statistical prediction",
+    "year": 1954,
+    "text": "Paul Meehl reviewed studies comparing experts' intuitive judgements with simple statistical rules in areas like parole and academic success. The simple rules matched or beat the experts in most comparisons. Those are areas with slow, noisy feedback, exactly where intuition isn't trained.",
+    "source": "Paul Meehl, Clinical Versus Statistical Prediction (1954); Grove et al., Psychological Assessment (2000)"
+  },
+  "misuse": "Distrusting all expert intuition. A firefighter or chess master's snap judgement is often better than slow analysis, because their field gave them the feedback.",
+  "related": [
+    "M2",
+    "M7",
+    "M3"
+  ],
+  "sources": [
+    "Kahneman & Klein, 'Conditions for Intuitive Expertise: A Failure to Disagree', American Psychologist 64 (2009)",
+    "Daniel Kahneman, Thinking, Fast and Slow (2011)"
+  ],
+  "quiz": {
+    "predict": {
+      "prompt": "Whose gut should the council trust most?",
+      "options": [
+        "Mira on which leaves will sicken",
+        "Mira on the colony's economy",
+        "Rook on long-term climate",
+        "A new arrival on anything"
+      ],
+      "answer": 0,
+      "why": "Only Mira's leaf judgement was built on thousands of fast, clear corrections."
+    },
+    "mcq": [
+      {
+        "prompt": "Intuition is most reliable when feedback is…",
+        "options": [
+          "rare and delayed",
+          "fast and clear",
+          "emotional",
+          "from peers"
+        ],
+        "answer": 1,
+        "why": "That is Kahneman and Klein's shared condition."
+      }
+    ],
+    "whichModel": {
+      "prompt": "A veteran pilot's split-second sense that something is wrong saves a flight; the same pilot's stock tips lose money.",
+      "options": [
+        "When to trust intuition",
+        "Signal vs. noise",
+        "Incentives",
+        "Map ≠ territory"
+      ],
+      "answer": 0,
+      "why": "Same person, different feedback environments."
+    }
+  },
+  "formula": null,
+  "videos": [],
+  "evidenceLabel": "🔬 strong evidence"
+}

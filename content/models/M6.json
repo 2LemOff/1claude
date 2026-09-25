@@ -1,0 +1,118 @@
+{
+  "id": "M6",
+  "name": "Same structure, same solution",
+  "aliases": [
+    "Isomorphism",
+    "Analogy by mathematics",
+    "Universality"
+  ],
+  "originator": "Many; e.g. Kermack & McKendrick (epidemic equations, 1927)",
+  "year": "—",
+  "evidence": "proven",
+  "category": "Thinking moves",
+  "rule": "Systems that obey the same math behave alike. This is how insight transfers between fields.",
+  "plain": "If two problems have the same shape, the solution to one works for the other, however different they look.",
+  "story": {
+    "act": 2,
+    "trail": 11,
+    "location": "clinic",
+    "cast": [
+      "dox",
+      "you",
+      "mira"
+    ],
+    "beat": "Blight moves rack to rack by contact. Dox sets it next to the flu outbreak from last winter and the rumour that swept the Habitat Ring. It's the same curve and the same math: susceptible → infected → removed. The quarantine that stopped the flu (spacing, isolating) becomes the plan for the racks: gaps between rows."
+  },
+  "examples": [
+    {
+      "location": "habitat",
+      "text": "A rumour spreads through the Ring exactly like the flu did. Isolating the source slows both."
+    },
+    {
+      "location": "lifesupport",
+      "text": "An oxygen tank venting through a small hole empties like a hot drink cooling: fast at first, then slower. Same exponential decay."
+    },
+    {
+      "location": "power",
+      "text": "Ada tunes the grid's voltage wobble with the same math used for a swinging pendulum and a bouncing spring."
+    }
+  ],
+  "sim": {
+    "type": "dots",
+    "kind": "same-sim-three-skins",
+    "settings": {
+      "model": "SIR",
+      "skins": [
+        "blight on racks",
+        "flu in the clinic",
+        "rumour in the Ring"
+      ],
+      "beta": 0.3,
+      "gamma": 0.1
+    }
+  },
+  "realCase": {
+    "kind": "success",
+    "title": "Epidemics and rumours share one equation",
+    "year": 1964,
+    "text": "Mathematicians Daley and Kendall adapted the SIR epidemic model (Kermack & McKendrick, 1927) to describe how rumours spread. The same structure is now used for disease, misinformation, computer viruses and product adoption.",
+    "source": "Daley & Kendall, 'Epidemics and Rumours', Nature 204 (1964)"
+  },
+  "misuse": "Forcing an analogy where the structure only looks similar. 'The economy is a household' shares words, not equations. Check that the underlying rules really match.",
+  "related": [
+    "M14",
+    "M15",
+    "M11"
+  ],
+  "sources": [
+    "Kermack & McKendrick, Proc. Royal Society A 115 (1927)",
+    "Steven Strogatz, Nonlinear Dynamics and Chaos (1994)"
+  ],
+  "videos": [
+    {
+      "title": "Simulating an epidemic",
+      "channel": "3Blue1Brown",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "quiz": {
+    "predict": {
+      "prompt": "Blight spreads rack to rack by contact. Which past colony event behaves the same way?",
+      "options": [
+        "The power plant's steady output",
+        "Last winter's flu",
+        "Monthly ration delivery",
+        "The mine's drilling rate"
+      ],
+      "answer": 1,
+      "why": "Contact-spread follows the same SIR structure."
+    },
+    "mcq": [
+      {
+        "prompt": "What makes two systems 'the same' in this sense?",
+        "options": [
+          "They look alike",
+          "They follow the same equations",
+          "They are in the same field",
+          "Experts say so"
+        ],
+        "answer": 1,
+        "why": "Shared math, not shared surface."
+      }
+    ],
+    "whichModel": {
+      "prompt": "An engineer designs shock absorbers using equations from electrical circuit theory.",
+      "options": [
+        "Same structure, same solution",
+        "First principles",
+        "Bottlenecks",
+        "Trade-offs"
+      ],
+      "answer": 0,
+      "why": "Mass-spring-damper and RLC circuits share equations."
+    }
+  },
+  "formula": null,
+  "evidenceLabel": "✅ proven (math/logic)"
+}

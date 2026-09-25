@@ -1,0 +1,106 @@
+{
+  "id": "M10",
+  "name": "Second-order thinking",
+  "aliases": [
+    "And then what?",
+    "Unintended consequences"
+  ],
+  "originator": "Frédéric Bastiat ('the seen and the unseen', 1850); Robert K. Merton (1936)",
+  "year": "1850 / 1936",
+  "evidence": "method",
+  "category": "Thinking moves",
+  "rule": "Keep asking 'and then what?' First effects are obvious; second and third effects decide outcomes.",
+  "plain": "Every fix causes something else. Look one or two steps further than everyone else.",
+  "story": {
+    "act": 3,
+    "trail": 15,
+    "location": "council",
+    "cast": [
+      "rook",
+      "ada",
+      "you"
+    ],
+    "beat": "Rook proposes bringing in beetles that eat blight fungus. First-order: less blight. You ask 'and then what?' The beetles breed fast, have no predators in the dome, and eat seedlings once the fungus runs out. Ada adds the third order: dead seedlings mean less oxygen next season. The comms tower plays the archive: cane toads, 1935."
+  },
+  "examples": [
+    {
+      "location": "market",
+      "text": "A cap on water prices → people use more → the shortage gets worse → a black market appears."
+    },
+    {
+      "location": "clinic",
+      "text": "Handing out painkillers freely → fewer complaints now → dependence later."
+    },
+    {
+      "location": "power",
+      "text": "Cutting maintenance saves power this month and causes a costly breakdown next quarter."
+    }
+  ],
+  "sim": {
+    "type": "diagram",
+    "kind": "consequence-tree",
+    "settings": {
+      "root": "Release blight-eating beetles",
+      "depth": 3,
+      "revealOnClick": true
+    }
+  },
+  "realCase": {
+    "kind": "failure",
+    "title": "Cane toads in Australia",
+    "year": 1935,
+    "text": "About 100 cane toads were released in Queensland to eat beetles damaging sugar cane. They didn't control the beetles, and with no natural predators they spread across millions of square kilometres, poisoning native animals that tried to eat them.",
+    "source": "Australian Government, Department of Climate Change, Energy, the Environment and Water: cane toad fact sheet"
+  },
+  "misuse": "Endless 'and then what?' that paralyses action. Doing nothing has second-order effects too, so compare both chains.",
+  "related": [
+    "M14",
+    "M9",
+    "M16",
+    "M18"
+  ],
+  "sources": [
+    "Frédéric Bastiat, 'What Is Seen and What Is Not Seen' (1850)",
+    "Robert K. Merton, 'The Unanticipated Consequences of Purposive Social Action' (1936)"
+  ],
+  "quiz": {
+    "predict": {
+      "prompt": "Beetles that eat blight fungus are released into a closed dome with no predators. Main risk?",
+      "options": [
+        "Nothing, because the blight is gone",
+        "Beetles multiply and start eating crops once the fungus runs out",
+        "Beetles die immediately",
+        "Beetles improve air"
+      ],
+      "answer": 1,
+      "why": "With no predator and a disappearing food source, the new pest finds new food."
+    },
+    "mcq": [
+      {
+        "prompt": "Bastiat's 'unseen' refers to…",
+        "options": [
+          "hidden taxes",
+          "effects that happen later or elsewhere",
+          "invisible light",
+          "secret plans"
+        ],
+        "answer": 1,
+        "why": "Consequences not visible at the moment of decision."
+      }
+    ],
+    "whichModel": {
+      "prompt": "A city adds lanes to cut traffic; within a few years the new lanes are just as jammed.",
+      "options": [
+        "Second-order thinking",
+        "Sunk cost",
+        "Map ≠ territory",
+        "Bayes"
+      ],
+      "answer": 0,
+      "why": "Induced demand, the 'and then what' of more road."
+    }
+  },
+  "formula": null,
+  "videos": [],
+  "evidenceLabel": "🧭 method or rule of thumb"
+}

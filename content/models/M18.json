@@ -1,0 +1,113 @@
+{
+  "id": "M18",
+  "name": "Evolution by selection",
+  "aliases": [
+    "Natural selection",
+    "Variation–selection–inheritance"
+  ],
+  "originator": "Charles Darwin & Alfred Russel Wallace",
+  "year": "1858–1859",
+  "evidence": "strong",
+  "category": "Recurring patterns",
+  "rule": "Anything with variation, selection and inheritance adapts without a designer.",
+  "plain": "Wherever copies vary and some copies survive better, the survivors' traits spread. It happens to genes, ideas, companies and algorithms.",
+  "formula": "Response = h² × Selection differential (breeder's equation)",
+  "story": {
+    "act": 3,
+    "trail": 14,
+    "location": "greenhouse",
+    "cast": [
+      "dox",
+      "mira",
+      "you"
+    ],
+    "beat": "The fungicide works: blight falls 95%. A month later it's back, and the fungicide barely touches it. Dox explains: the 5% that survived were the resistant ones, and they seeded the next generation. The colony selected for its own enemy. The new plan rotates two fungicides and never sprays at half strength."
+  },
+  "examples": [
+    {
+      "location": "market",
+      "text": "Stall designs that attract buyers get copied; the others vanish. The market 'evolves' without anyone designing it."
+    },
+    {
+      "location": "habitat",
+      "text": "Jokes and rumours mutate as they're retold, and the most repeatable versions survive."
+    },
+    {
+      "location": "power",
+      "text": "Ada's scheduling algorithm 'breeds' candidate schedules, keeps the best and mixes them. A genetic algorithm."
+    }
+  ],
+  "sim": {
+    "type": "agents",
+    "kind": "selection",
+    "settings": {
+      "population": 200,
+      "traits": [
+        "resistance"
+      ],
+      "selectionPressure": 0.95,
+      "generations": 20,
+      "sliders": [
+        "selectionPressure",
+        "mutationRate"
+      ]
+    }
+  },
+  "realCase": {
+    "kind": "failure",
+    "title": "Antibiotic resistance",
+    "year": 1945,
+    "text": "In his 1945 Nobel lecture, Alexander Fleming warned that underdosing penicillin would breed resistant bacteria. Decades of overuse in medicine and farming did exactly that. Drug-resistant infections are now a leading global health threat.",
+    "source": "Alexander Fleming, Nobel Lecture (1945); WHO fact sheet on antimicrobial resistance"
+  },
+  "misuse": "Treating evolution as 'progress' or as a moral rule ('survival of the fittest' as justification). It only means 'fits the current environment', which says nothing about what's good.",
+  "related": [
+    "M6",
+    "M10",
+    "M19"
+  ],
+  "sources": [
+    "Charles Darwin, On the Origin of Species (1859)",
+    "Richard Dawkins, The Selfish Gene (1976)",
+    "Daniel Dennett, Darwin's Dangerous Idea (1995)"
+  ],
+  "quiz": {
+    "predict": {
+      "prompt": "Fungicide kills 95% of blight. What happens after a month of daily use?",
+      "options": [
+        "Blight disappears",
+        "Blight returns, mostly resistant",
+        "Blight stays at 5% forever",
+        "Plants become immune"
+      ],
+      "answer": 1,
+      "why": "The survivors were the resistant ones; they reproduce."
+    },
+    "mcq": [
+      {
+        "prompt": "Which three conditions are needed for evolution?",
+        "options": [
+          "Variation, selection, inheritance",
+          "Design, purpose, time",
+          "Size, speed, strength",
+          "Mutation only"
+        ],
+        "answer": 0,
+        "why": "Without any one of these, no adaptation."
+      }
+    ],
+    "whichModel": {
+      "prompt": "Spam filters block most spam; months later spam has changed to slip past them.",
+      "options": [
+        "Evolution by selection",
+        "Incentives",
+        "Signal vs. noise",
+        "Fat tails"
+      ],
+      "answer": 0,
+      "why": "Filters are selection pressure on spam variants."
+    }
+  },
+  "videos": [],
+  "evidenceLabel": "🔬 strong evidence"
+}

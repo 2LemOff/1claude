@@ -1,0 +1,124 @@
+{
+  "id": "M2",
+  "name": "Bayesian updating",
+  "aliases": [
+    "Bayes' theorem",
+    "Base rates"
+  ],
+  "originator": "Thomas Bayes; Pierre-Simon Laplace",
+  "year": "1763 / 1812",
+  "evidence": "proven",
+  "category": "Thinking moves",
+  "rule": "Start from the base rate (how often this is usually true), then update by how much likelier the evidence is if you're right than if you're wrong.",
+  "plain": "A positive test doesn't mean 'probably yes'. It depends on how rare the thing was to begin with.",
+  "formula": "P(H|E) = P(E|H)·P(H) / P(E)",
+  "story": {
+    "act": 2,
+    "trail": 5,
+    "location": "clinic",
+    "cast": [
+      "dox",
+      "you",
+      "mira"
+    ],
+    "beat": "Dox's leaf-blight test catches 90% of infected plants but flags 5% of healthy ones. About 2% of plants are infected. A rack tests positive and Mira wants to burn it. You draw 1,000 plants as dots: 20 infected (18 flagged) and 980 healthy (49 falsely flagged). Only 18 of the 67 flagged plants, about 27%, are really sick. The rack gets a second test instead of the fire."
+  },
+  "examples": [
+    {
+      "location": "comms",
+      "text": "An alarm from Earth says '99% accurate storm warning'. Storms are rare, so most alarms are false. You check the base rate before evacuating the docks."
+    },
+    {
+      "location": "habitat",
+      "text": "A rumour says Rook is hoarding water. How often are such rumours true here? Rarely, so one sighting shifts your belief only a little."
+    },
+    {
+      "location": "mine",
+      "text": "A drill sensor flags ice. Ice is common in this region, so the same beep is more trustworthy here than in the dry zone."
+    }
+  ],
+  "sim": {
+    "type": "dots",
+    "kind": "icon-array",
+    "settings": {
+      "population": 1000,
+      "baseRate": 0.02,
+      "sensitivity": 0.9,
+      "falsePositiveRate": 0.05,
+      "sliders": [
+        "baseRate",
+        "sensitivity",
+        "falsePositiveRate"
+      ]
+    }
+  },
+  "realCase": {
+    "kind": "failure",
+    "title": "The Sally Clark case",
+    "year": 1999,
+    "text": "A mother was convicted of murdering her two infant sons, partly on an expert's claim that two cot deaths in one family had a '1 in 73 million' chance. That figure wrongly treated the deaths as independent, and the court ignored the base rate of the alternative, double murder, which is also extremely rare. The Royal Statistical Society protested, and her conviction was overturned in 2003.",
+    "source": "Royal Statistical Society statement (2001); R v Clark [2003] EWCA Crim 1020"
+  },
+  "misuse": "Plugging in made-up starting probabilities and then trusting the output because it came from a formula. Bayes is only as good as its base rate.",
+  "related": [
+    "M7",
+    "M4",
+    "M13"
+  ],
+  "sources": [
+    "Gerd Gigerenzer, Calculated Risks (2002)",
+    "McDowell & Jacobs, Psychological Bulletin (2017): natural frequencies meta-analysis"
+  ],
+  "videos": [
+    {
+      "title": "Bayes theorem, the geometry of changing beliefs",
+      "channel": "3Blue1Brown",
+      "url": null,
+      "verified": false
+    },
+    {
+      "title": "The Bayesian Trap",
+      "channel": "Veritasium",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "quiz": {
+    "predict": {
+      "prompt": "Blight in 2% of plants. The test catches 90%, false-alarms 5%. A plant tests positive. Chance it's infected?",
+      "options": [
+        "about 90%",
+        "about 50%",
+        "about 27%",
+        "about 5%"
+      ],
+      "answer": 2,
+      "why": "18 true positives vs 49 false positives out of 1,000: 18/67 ≈ 27%."
+    },
+    "mcq": [
+      {
+        "prompt": "What happens to the answer if blight becomes common (20%)?",
+        "options": [
+          "It stays 27%",
+          "It rises a lot",
+          "It falls",
+          "It becomes 90% exactly"
+        ],
+        "answer": 1,
+        "why": "A higher base rate means a larger share of positives are real (about 82%)."
+      }
+    ],
+    "whichModel": {
+      "prompt": "A doctor says: 'This screening test is 95% accurate, but the disease is so rare that most positives are false alarms.'",
+      "options": [
+        "Bayesian updating",
+        "Regression to the mean",
+        "Selection effects",
+        "Signal vs. noise"
+      ],
+      "answer": 0,
+      "why": "Base rate combined with test accuracy."
+    }
+  },
+  "evidenceLabel": "✅ proven (math/logic)"
+}

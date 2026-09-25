@@ -1,0 +1,109 @@
+{
+  "id": "M9",
+  "name": "Inversion",
+  "aliases": [
+    "Pre-mortem",
+    "Invert, always invert"
+  ],
+  "originator": "Carl Jacobi (maths); Charlie Munger (popularised); Gary Klein (pre-mortem, 2007)",
+  "year": "19th c. / 2007",
+  "evidence": "method",
+  "category": "Thinking moves",
+  "rule": "Ask what would guarantee failure, and avoid it. Or imagine the project has already failed and ask why.",
+  "plain": "Instead of 'how do we succeed?', ask 'how would we fail?' The answers are easier to see.",
+  "story": {
+    "act": 3,
+    "trail": 16,
+    "location": "council",
+    "cast": [
+      "ada",
+      "you",
+      "dox",
+      "rook"
+    ],
+    "beat": "The rescue plan is ready. Before the vote, you ask everyone: 'It's 90 days from now. The colony ran out of air. Write down why.' The answers: the backup pump was never tested, one person held all the fungicide codes, and nobody watched the sensor at night. Three holes, found in ten minutes, fixed before they mattered."
+  },
+  "examples": [
+    {
+      "location": "clinic",
+      "text": "'How would we guarantee a medication error?' Similar labels on two drugs. Relabel them."
+    },
+    {
+      "location": "docks",
+      "text": "'How could landing go wrong?' Nobody checks the pad for debris. Add a checklist item."
+    },
+    {
+      "location": "habitat",
+      "text": "'How would I make sure I never exercise?' Keep the gear in storage. So keep it by the door."
+    }
+  ],
+  "sim": {
+    "type": "diagram",
+    "kind": "premortem-board",
+    "settings": {
+      "prompt": "It's day 90. We ran out of air. Why?",
+      "cards": [
+        "Backup pump never tested",
+        "Single person held codes",
+        "No night monitoring"
+      ]
+    }
+  },
+  "realCase": {
+    "kind": "failure",
+    "title": "Space Shuttle Challenger",
+    "year": 1986,
+    "text": "The night before launch, engineers warned that cold weather could stop the rubber O-ring seals working and argued for delay. Managers asked them to prove it was unsafe rather than asking what would make it fail. Challenger broke apart 73 seconds after launch.",
+    "source": "Report of the Presidential Commission on the Space Shuttle Challenger Accident (Rogers Commission, 1986)"
+  },
+  "misuse": "Listing every imaginable failure until nothing ever launches. Rank failure modes by likelihood and impact, then act.",
+  "related": [
+    "M10",
+    "M5",
+    "M17"
+  ],
+  "sources": [
+    "Gary Klein, 'Performing a Project Premortem', Harvard Business Review (Sept 2007)",
+    "Peter Bevelin, Seeking Wisdom (2003)"
+  ],
+  "quiz": {
+    "predict": {
+      "prompt": "Which question finds hidden risks in a plan fastest?",
+      "options": [
+        "'How confident are we?'",
+        "'Imagine it failed. Why?'",
+        "'What's the best case?'",
+        "'Who's responsible?'"
+      ],
+      "answer": 1,
+      "why": "A pre-mortem makes it safe to name failure modes."
+    },
+    "mcq": [
+      {
+        "prompt": "At Challenger, the burden of proof was put on…",
+        "options": [
+          "proving it was safe",
+          "proving it was unsafe",
+          "the astronauts",
+          "the weather"
+        ],
+        "answer": 1,
+        "why": "Inverted the wrong way: 'prove it will fail' instead of 'show it won't'."
+      }
+    ],
+    "whichModel": {
+      "prompt": "Before a product launch, a team writes the imaginary headline 'Launch disaster' and lists the causes.",
+      "options": [
+        "Inversion",
+        "Outside view",
+        "Fermi estimation",
+        "Game theory"
+      ],
+      "answer": 0,
+      "why": "A pre-mortem is inversion."
+    }
+  },
+  "formula": null,
+  "videos": [],
+  "evidenceLabel": "🧭 method or rule of thumb"
+}

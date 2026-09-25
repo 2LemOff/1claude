@@ -1,0 +1,114 @@
+{
+  "id": "M17",
+  "name": "Normal vs. fat-tailed distributions",
+  "aliases": [
+    "Power laws",
+    "Black swans",
+    "Pareto"
+  ],
+  "originator": "Vilfredo Pareto (1896); Benoît Mandelbrot (1963); Nassim Taleb (2007)",
+  "year": "1896 / 1963",
+  "evidence": "strong",
+  "category": "Recurring patterns",
+  "rule": "Heights cluster near an average. Wealth, city sizes, earthquakes and book sales follow power laws, where averages mislead and rare extremes dominate.",
+  "plain": "In some worlds the biggest event is only a bit bigger than the average. In others, one event can be bigger than all the rest combined.",
+  "formula": "Normal: P(x) ∝ e^(−x²/2σ²)   ·   Power law: P(X > x) ∝ x^(−α)",
+  "story": {
+    "act": 3,
+    "trail": 17,
+    "location": "lifesupport",
+    "cast": [
+      "ada",
+      "you",
+      "rook"
+    ],
+    "beat": "The hull has taken 500 micrometeoroid hits in 10 years, all tiny, and the average hit is harmless. Rook wants to cut shielding. You plot the hit sizes: a power law. The rare big impact isn't a bit worse than average; it could be thousands of times worse. The shield budget stays."
+  },
+  "examples": [
+    {
+      "location": "market",
+      "text": "Two traders out of 200 hold most of the colony's credits. The 'average wealth' describes nobody."
+    },
+    {
+      "location": "habitat",
+      "text": "Colonists' heights are normal: nobody is 5 metres tall. Their follower counts on the colony net are fat-tailed."
+    },
+    {
+      "location": "power",
+      "text": "Most solar flares are harmless; the rare giant one can fry every circuit, so plan for the tail."
+    }
+  ],
+  "sim": {
+    "type": "dots",
+    "kind": "distribution-compare",
+    "settings": {
+      "left": {
+        "dist": "normal",
+        "label": "heights"
+      },
+      "right": {
+        "dist": "pareto",
+        "alpha": 1.2,
+        "label": "impact sizes"
+      },
+      "samples": 1000,
+      "showRunningMean": true
+    }
+  },
+  "realCase": {
+    "kind": "failure",
+    "title": "Long-Term Capital Management",
+    "year": 1998,
+    "text": "A hedge fund run by star traders and two Nobel-winning economists used models that treated extreme market moves as near-impossible. Heavily borrowed, it lost about $4.6 billion in a few months after Russia's debt default, and the New York Fed organised a bank-funded rescue to prevent wider damage.",
+    "source": "Roger Lowenstein, When Genius Failed (2000)"
+  },
+  "misuse": "Treating '80/20' as a law of nature, or calling everything a 'black swan' after the fact to excuse bad planning.",
+  "related": [
+    "M11",
+    "M9",
+    "M15"
+  ],
+  "sources": [
+    "Nassim Taleb, The Black Swan (2007)",
+    "Mark Newman, 'Power laws, Pareto distributions and Zipf's law', Contemporary Physics (2005)"
+  ],
+  "quiz": {
+    "predict": {
+      "prompt": "500 small hull hits so far. Impact sizes follow a power law. The worst future hit is likely…",
+      "options": [
+        "about the average",
+        "about twice the average",
+        "possibly far larger than anything seen so far",
+        "smaller than past hits"
+      ],
+      "answer": 2,
+      "why": "Fat tails mean the past maximum isn't a ceiling."
+    },
+    "mcq": [
+      {
+        "prompt": "Which is fat-tailed?",
+        "options": [
+          "adult height",
+          "exam scores",
+          "city populations",
+          "body temperature"
+        ],
+        "answer": 2,
+        "why": "City sizes follow a power law."
+      }
+    ],
+    "whichModel": {
+      "prompt": "A publisher's one bestseller outsells its other 500 books combined.",
+      "options": [
+        "Fat tails",
+        "Regression",
+        "Incentives",
+        "Bayes"
+      ],
+      "answer": 0,
+      "why": "Extreme winners dominate totals."
+    }
+  },
+  "videos": [],
+  "evidenceLabel": "🔬 strong evidence"
+}

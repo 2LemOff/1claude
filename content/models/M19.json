@@ -1,0 +1,126 @@
+{
+  "id": "M19",
+  "name": "Game theory",
+  "aliases": [
+    "Prisoner's dilemma",
+    "Tragedy of the commons",
+    "Tit for tat"
+  ],
+  "originator": "John von Neumann & Oskar Morgenstern (1944); John Nash (1950); Robert Axelrod (1984)",
+  "year": "1944–1984",
+  "evidence": "proven",
+  "category": "Recurring patterns",
+  "rule": "Your best move depends on what others do. Repeated play plus reputation make cooperation possible.",
+  "plain": "When everyone grabs what's best for themselves, everyone can end up worse off, unless the game repeats and people remember.",
+  "formula": "Prisoner's dilemma payoffs: T > R > P > S (temptation > reward > punishment > sucker)",
+  "story": {
+    "act": 4,
+    "trail": 19,
+    "location": "council",
+    "cast": [
+      "rook",
+      "mira",
+      "you"
+    ],
+    "beat": "Water is short. The mine needs it for drilling; the greenhouse needs it for plants. Each crew does better by quietly drawing extra, but if both do, the reservoir fails and both lose. It's a tragedy of the commons. You set up a repeated game: daily public meter readings, and each crew mirrors what the other did yesterday (tit for tat). Within a week, both draw their fair share."
+  },
+  "examples": [
+    {
+      "location": "market",
+      "text": "Two stalls cut prices to beat each other until neither makes a profit: a price war."
+    },
+    {
+      "location": "habitat",
+      "text": "Everyone would rather someone else cleaned the shared air filters. Reputation, via a visible rota, solves it."
+    },
+    {
+      "location": "docks",
+      "text": "Two colonies negotiating supply-ship space do better with long-term deals than one-off grabs."
+    }
+  ],
+  "sim": {
+    "type": "agents",
+    "kind": "iterated-dilemma",
+    "settings": {
+      "strategies": [
+        "always cooperate",
+        "always defect",
+        "tit for tat",
+        "grudger",
+        "random"
+      ],
+      "rounds": 10,
+      "noise": 0.05
+    }
+  },
+  "realCase": {
+    "kind": "failure",
+    "title": "Collapse of the Grand Banks cod",
+    "year": 1992,
+    "text": "For centuries, the waters off Newfoundland held one of the richest fisheries on Earth. Each fleet had an incentive to catch more before others did. By 1992 the stock had collapsed, Canada imposed a moratorium, and about 30,000 jobs were lost. The cod have still not fully recovered.",
+    "source": "Fisheries and Oceans Canada; Myers, Hutchings & Barrowman, Ecological Applications (1997)"
+  },
+  "misuse": "Assuming everyone is a cold calculator. Real people cooperate more than simple models predict, and treating them as purely selfish can make them act that way.",
+  "related": [
+    "M16",
+    "M20",
+    "M18"
+  ],
+  "sources": [
+    "Robert Axelrod, The Evolution of Cooperation (1984)",
+    "Garrett Hardin, 'The Tragedy of the Commons', Science 162 (1968)",
+    "Elinor Ostrom, Governing the Commons (1990)"
+  ],
+  "videos": [
+    {
+      "title": "The Evolution of Trust (interactive)",
+      "channel": "Nicky Case",
+      "url": "https://ncase.me/trust/",
+      "verified": false
+    },
+    {
+      "title": "What Game Theory Reveals About Life, The Universe, and Everything",
+      "channel": "Veritasium",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "quiz": {
+    "predict": {
+      "prompt": "Two crews share a reservoir and meet daily. Which strategy tends to do best over many rounds?",
+      "options": [
+        "Always take extra",
+        "Always give way",
+        "Cooperate first, then copy what the other did last time",
+        "Random"
+      ],
+      "answer": 2,
+      "why": "Tit for tat won Axelrod's tournaments: nice, retaliatory, forgiving, clear."
+    },
+    "mcq": [
+      {
+        "prompt": "Elinor Ostrom showed commons can be managed well when…",
+        "options": [
+          "a government owns them",
+          "users set and enforce their own rules with monitoring",
+          "they're privatised",
+          "never"
+        ],
+        "answer": 1,
+        "why": "She won the 2009 Nobel for this."
+      }
+    ],
+    "whichModel": {
+      "prompt": "Two countries keep building weapons because each fears the other will, and both end up poorer and no safer.",
+      "options": [
+        "Game theory",
+        "Feedback loops",
+        "Sunk cost",
+        "Map ≠ territory"
+      ],
+      "answer": 0,
+      "why": "An arms race is a prisoner's dilemma."
+    }
+  },
+  "evidenceLabel": "✅ proven (math/logic)"
+}

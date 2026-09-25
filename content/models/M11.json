@@ -1,0 +1,112 @@
+{
+  "id": "M11",
+  "name": "Map ≠ territory",
+  "aliases": [
+    "All models are wrong",
+    "Model limits"
+  ],
+  "originator": "Alfred Korzybski; George Box",
+  "year": "1931 / 1976",
+  "evidence": "proven",
+  "category": "Thinking moves",
+  "rule": "Every model leaves things out, so know where yours breaks.",
+  "plain": "A map is useful because it simplifies. Know which simplifications matter here.",
+  "story": {
+    "act": 2,
+    "trail": 10,
+    "location": "comms",
+    "cast": [
+      "ada",
+      "you"
+    ],
+    "beat": "The colony's oxygen simulator, built on Earth, says the greenhouse should be fine. Ada pulls it apart: it models plants and lamps but not soil microbes, which also breathe oxygen. The map left out a living part of the territory. The comms tower plays an archive transmission: Biosphere 2."
+  },
+  "examples": [
+    {
+      "location": "power",
+      "text": "The solar model assumes clear skies. Dust storms aren't on that map, so the storage plan must allow for them."
+    },
+    {
+      "location": "mine",
+      "text": "The rock model treats the crust as uniform. The drill hits a hidden void the map never showed."
+    },
+    {
+      "location": "market",
+      "text": "The price model assumes rational traders. During the panic, nobody behaves like the map."
+    }
+  ],
+  "sim": {
+    "type": "flow",
+    "kind": "model-vs-reality",
+    "settings": {
+      "model": [
+        "plants",
+        "lamps"
+      ],
+      "reality": [
+        "plants",
+        "lamps",
+        "soil microbes",
+        "concrete absorbing CO2"
+      ],
+      "toggleHiddenFactors": true
+    }
+  },
+  "realCase": {
+    "kind": "failure",
+    "title": "Biosphere 2's vanishing oxygen",
+    "year": 1991,
+    "text": "Eight people sealed themselves inside a 1.27-hectare artificial world in Arizona. Over 16 months, oxygen fell from 20.9% to about 14.5%, and fresh oxygen had to be pumped in. The designers' model had missed two things: rich soil full of microbes consuming oxygen, and fresh concrete absorbing the CO2 that should have been recycled back into oxygen.",
+    "source": "Severinghaus et al., 'Oxygen loss in Biosphere 2', Eos (1994)"
+  },
+  "misuse": "Rejecting all models because none are perfect. The question isn't 'is it true?' but 'is it useful here, and where does it break?'",
+  "related": [
+    "M12",
+    "M1",
+    "M17"
+  ],
+  "sources": [
+    "Alfred Korzybski, Science and Sanity (1933)",
+    "George Box, 'Science and Statistics', JASA (1976)"
+  ],
+  "quiz": {
+    "predict": {
+      "prompt": "The Earth-built simulator says oxygen should be fine, but it isn't. Most likely reason?",
+      "options": [
+        "The sensors lie",
+        "The model leaves out something that matters here",
+        "Random noise",
+        "Sabotage"
+      ],
+      "answer": 1,
+      "why": "When a model and reality disagree, look for what the map omits."
+    },
+    "mcq": [
+      {
+        "prompt": "What drained Biosphere 2's oxygen?",
+        "options": [
+          "A hull leak",
+          "Soil microbes plus concrete absorbing CO2",
+          "Too many people",
+          "Plant disease"
+        ],
+        "answer": 1,
+        "why": "Both were missing from the design model."
+      }
+    ],
+    "whichModel": {
+      "prompt": "Newton's laws predict a satellite clock perfectly, except that GPS needs relativity corrections or errors of about 10 km build up each day.",
+      "options": [
+        "Map ≠ territory",
+        "Chaos",
+        "First principles",
+        "Bayes"
+      ],
+      "answer": 0,
+      "why": "A great model applied past its limits."
+    }
+  },
+  "formula": null,
+  "videos": [],
+  "evidenceLabel": "✅ proven (math/logic)"
+}

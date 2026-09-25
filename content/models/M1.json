@@ -1,0 +1,108 @@
+{
+  "id": "M1",
+  "name": "First principles",
+  "aliases": [
+    "Reasoning from first principles"
+  ],
+  "originator": "Aristotle (archai); popularised in engineering",
+  "year": "c. 350 BCE",
+  "evidence": "method",
+  "category": "Thinking moves",
+  "rule": "Break a problem down to what must be true (laws, hard constraints, measured costs), then rebuild from there instead of copying how it's usually done.",
+  "plain": "Ask what physics and hard numbers say, not what everyone assumes. Your answer is only as good as the facts you start from.",
+  "story": {
+    "act": 1,
+    "trail": 1,
+    "location": "lifesupport",
+    "cast": [
+      "ada",
+      "you"
+    ],
+    "beat": "The oxygen alarm sounds. The manual says 'order more tanks', but no ship is coming. Ada wipes the whiteboard: 'Forget the manual. What must be true for 200 people to keep breathing?' You list only the hard facts: oxygen used per person, oxygen made per plant, oxygen in storage."
+  },
+  "examples": [
+    {
+      "location": "power",
+      "text": "Instead of copying Earth's power-grid design, Ada asks how many watts each location truly needs. Half the lighting load turns out to be habit, not need."
+    },
+    {
+      "location": "market",
+      "text": "Ration prices were copied from Earth. Rebuilt from the colony's real production costs, water turns out to be underpriced tenfold."
+    },
+    {
+      "location": "docks",
+      "text": "Everyone assumes spare parts must come from Earth. Listing the materials each part needs shows that half of them can be printed locally."
+    }
+  ],
+  "sim": {
+    "type": "diagram",
+    "kind": "decomposition-tree",
+    "settings": {
+      "root": "Keep 200 people breathing",
+      "leaves": [
+        "O2 consumed per person",
+        "O2 produced per plant",
+        "O2 in storage",
+        "Leak rate"
+      ]
+    }
+  },
+  "realCase": {
+    "kind": "success",
+    "title": "The Wright brothers' wind tunnel",
+    "year": 1901,
+    "text": "Their gliders produced far less lift than the published data predicted. Instead of trusting the tables, they built their own wind tunnel and measured about 200 wing shapes from scratch. They found the accepted Smeaton coefficient was wrong and corrected it, and powered flight followed in 1903.",
+    "source": "Tom Crouch, The Bishop's Boys (1989)"
+  },
+  "misuse": "Using 'first principles' as a licence to ignore hard-won knowledge. Every rule you discard was learned from someone's failure, so check that your 'basics' are actually true and complete.",
+  "related": [
+    "M13",
+    "M5",
+    "M11",
+    "M3"
+  ],
+  "sources": [
+    "Aristotle, Physics, Book I",
+    "Tom Crouch, The Bishop's Boys (1989)"
+  ],
+  "quiz": {
+    "predict": {
+      "prompt": "The manual says each colonist needs 3 oxygen tanks a month. Before trusting it, what would you check first?",
+      "options": [
+        "How many tanks we have left",
+        "How much oxygen a human actually uses per day",
+        "What other colonies do",
+        "What the council prefers"
+      ],
+      "answer": 1,
+      "why": "Start from the physical quantity (about 0.84 kg of O2 per person per day). Tanks are just a unit someone chose."
+    },
+    "mcq": [
+      {
+        "prompt": "First principles is weakest when…",
+        "options": [
+          "the starting facts are wrong or incomplete",
+          "the problem is technical",
+          "you have too much data",
+          "the problem is new"
+        ],
+        "answer": 0,
+        "why": "It rebuilds from its inputs, so bad inputs produce confident nonsense."
+      }
+    ],
+    "whichModel": {
+      "prompt": "A startup asks why batteries cost so much and prices out the raw metals, finding they cost a fraction of the pack price.",
+      "options": [
+        "First principles",
+        "Fermi estimation",
+        "Inversion",
+        "Incentives"
+      ],
+      "answer": 0,
+      "why": "It rebuilds cost from what must be true (material costs), not from market prices."
+    }
+  },
+  "formula": null,
+  "videos": [],
+  "evidenceLabel": "🧭 method or rule of thumb"
+}

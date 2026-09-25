@@ -1,6 +1,6 @@
 # DECISIONS: Mental-Models Learning App
 
-Status: planning. No app code yet. ✅ = decided by the owner. ★ = the default that applies unless the owner changes it.
+Status: **all choices settled (2026-09-25).** The owner accepted every ★ default, so each ★ option below is now the decision. ✅ = picked explicitly.
 
 ## Context
 The brainstorm chat described a visual learning app for 50 mental models plus their sources. The repo `2lemoff/1claude` is still empty (no commits; branch `claude/fervent-brahmagupta-cd9r0d`). Building can't start until the decisions below are made. ✅ marks a decision you've made. ★ marks my recommended default, which applies to anything you leave open.
@@ -26,7 +26,7 @@ Some tool facts in the brainstorm are dated after my training data: the Sora shu
 | 12 | Scene setting | **A space colony.** A bounded habitat with life support, a power plant, greenhouses, a clinic, a market, docks and a comms link to Earth. Hard physics constraints (energy, air, scale) come built in, and people's everyday life, work and politics happen inside the habitat. |
 | 18 | The 2 animations | **Exponentials/S-curves (M15)** and **feedback loops (M14)**. |
 
-## Open: choices still needed (★ = default if you don't answer)
+## Accepted defaults (★ = chosen option)
 **Scene and story**
 13. **Protagonist**: ★ one shape-character, "you" (a newly arrived colonist), plus a small recurring crew (3–5 shapes, each with a colour and personality) · no protagonist, just a narrator.
 14. **Story arc across the 20 pilot models**: ★ the colony faces one growing problem, such as a failing oxygen greenhouse or a mystery illness spreading, with supply ships from Earth delayed. Each model is the tool that solves the next piece of it: diagnosing the cause (thinking moves M1–M13), then the growth and loops inside the habitat (M14–M15), then the crew's incentives, factions and trade (M16–M20). The final choices set the colony's future.
@@ -53,5 +53,3 @@ Some tool facts in the brainstorm are dated after my training data: the Sora shu
 **Process**
 29. **Fact-checking**: ★ I cite a source for every item and you spot-check a sample.
 30. **Build order**: ★ (1) content JSON for the 20 models → (2) the scene engine, shape cast and the 2 overlay types → (3) the first 5 models playable → (4) your feedback → (5) the remaining 15 → (6) review system, 2 animations and curated videos → (7) expand to 50.
-
----

@@ -1,0 +1,114 @@
+{
+  "id": "M7",
+  "name": "Signal vs. noise",
+  "aliases": [
+    "Overfitting",
+    "Multiple comparisons",
+    "Look-elsewhere effect"
+  ],
+  "originator": "Norbert Wiener / Claude Shannon (signal theory); statistics of multiple testing",
+  "year": "1940s",
+  "evidence": "proven",
+  "category": "Thinking moves",
+  "rule": "Random data is full of apparent patterns. A real pattern predicts new data it wasn't fitted to, so beware overfitting and testing many hypotheses at once.",
+  "plain": "If you look at enough things, some will look meaningful by accident. Real patterns keep working on fresh data.",
+  "formula": "P(at least one false hit) = 1 − (1 − α)^k  → with α = 0.05, k = 20: ≈ 64%",
+  "story": {
+    "act": 2,
+    "trail": 7,
+    "location": "lifesupport",
+    "cast": [
+      "you",
+      "ada",
+      "rook"
+    ],
+    "beat": "Rook's crew checked 20 factors and found oxygen dips on Tuesdays. 'It's the Tuesday mining shift!' You scatter 20 random dot-clouds on the wall, and one of them also shows a 'Tuesday effect'. With 20 tries, a fluke is likely. Next week's Tuesday is normal, and the pattern vanishes."
+  },
+  "examples": [
+    {
+      "location": "market",
+      "text": "A trader finds a 'winning rule' by testing 500 rules on last year's prices. On this year's prices it loses."
+    },
+    {
+      "location": "clinic",
+      "text": "A cluster of 4 headaches in one corridor looks alarming, but with 40 corridors, one cluster is expected by chance."
+    },
+    {
+      "location": "habitat",
+      "text": "'Every time I wash my suit, a dust storm comes.' You remember the hits and forget the misses."
+    }
+  ],
+  "sim": {
+    "type": "dots",
+    "kind": "random-clusters",
+    "settings": {
+      "panels": 20,
+      "pointsPerPanel": 30,
+      "alpha": 0.05,
+      "button": "Reshuffle and hunt for 'patterns'"
+    }
+  },
+  "realCase": {
+    "kind": "failure",
+    "title": "The dead salmon fMRI study",
+    "year": 2009,
+    "text": "Researchers put a dead salmon in a brain scanner and 'asked' it to judge emotions in photos. Without correcting for the thousands of brain regions tested, some regions lit up as 'active'. The spoof study showed how multiple comparisons manufacture signals from noise.",
+    "source": "Bennett, Baird, Miller & Wolford, poster at Human Brain Mapping (2009); J. Serendipitous & Unexpected Results (2010)"
+  },
+  "misuse": "Dismissing every surprising pattern as noise. Real early signals exist; the answer is to test them on new data, not to ignore them.",
+  "related": [
+    "M2",
+    "M3",
+    "M4"
+  ],
+  "sources": [
+    "John Ioannidis, 'Why Most Published Research Findings Are False', PLoS Medicine (2005)",
+    "Nate Silver, The Signal and the Noise (2012)"
+  ],
+  "videos": [
+    {
+      "title": "Is Most Published Research Wrong?",
+      "channel": "Veritasium",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "quiz": {
+    "predict": {
+      "prompt": "You test 20 unrelated factors at the 5% level. Chance at least one looks 'significant' by luck?",
+      "options": [
+        "5%",
+        "about 20%",
+        "about 64%",
+        "100%"
+      ],
+      "answer": 2,
+      "why": "1 − 0.95²⁰ ≈ 0.64."
+    },
+    "mcq": [
+      {
+        "prompt": "Best protection against overfitting?",
+        "options": [
+          "More decimal places",
+          "Test the pattern on data it wasn't built from",
+          "A more complex model",
+          "Asking an expert"
+        ],
+        "answer": 1,
+        "why": "Out-of-sample prediction separates signal from noise."
+      }
+    ],
+    "whichModel": {
+      "prompt": "A fund shows its best strategy out of 1,000 it backtested, and it fails once live.",
+      "options": [
+        "Signal vs. noise",
+        "Fat tails",
+        "Game theory",
+        "Causal thinking"
+      ],
+      "answer": 0,
+      "why": "Picking the best of many fits is overfitting."
+    }
+  },
+  "evidenceLabel": "✅ proven (math/logic)"
+}

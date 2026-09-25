@@ -1,0 +1,102 @@
+{
+  "setting": {
+    "name": "Kepler Station",
+    "summary": "A 200-person colony under a sealed dome. Everything the colonists breathe, eat and burn is made or recycled inside. Earth is a radio link and a supply ship away.",
+    "locations": {
+      "greenhouse": "Greenhouse Dome: crop racks under LED lamps. The main oxygen source.",
+      "lifesupport": "Life Support: oxygen tanks, CO2 scrubbers, air sensors.",
+      "power": "Power Plant: solar array and reactor. Every other location draws from it.",
+      "clinic": "Clinic: medical bay and the lab that runs tests.",
+      "market": "Market: where colonists trade rations, time and favours.",
+      "mine": "Mine: ice and metal extraction. Water comes from here.",
+      "habitat": "Habitat Ring: homes. Where daily life and rumours happen.",
+      "council": "Council Hall: where the colony makes shared decisions.",
+      "comms": "Comms Tower: the link to Earth. Real-world cases arrive here as 'archive transmissions'.",
+      "docks": "Docks: where supply ships land."
+    }
+  },
+  "cast": [
+    {
+      "id": "you",
+      "shape": "circle",
+      "color": "white",
+      "role": "Newly arrived colonist. Learns each model by using it."
+    },
+    {
+      "id": "ada",
+      "shape": "triangle",
+      "color": "teal",
+      "role": "Chief engineer. Asks 'what must be true?' Blunt, precise."
+    },
+    {
+      "id": "mira",
+      "shape": "hexagon",
+      "color": "green",
+      "role": "Veteran botanist, 12 years in the dome. Strong gut instincts, sometimes right."
+    },
+    {
+      "id": "dox",
+      "shape": "diamond",
+      "color": "blue",
+      "role": "Clinic doctor. Trusts data, distrusts anecdotes."
+    },
+    {
+      "id": "rook",
+      "shape": "square",
+      "color": "red",
+      "role": "Mine foreman. Defends his crew's share of power and water."
+    }
+  ],
+  "crisis": "Oxygen output from the Greenhouse Dome is falling about 1% a day, and the next supply ship has been delayed 90 days. The cause turns out to be a slow-spreading leaf blight made worse by a drifting lamp spectrum. Solving it takes every model in the pilot.",
+  "acts": [
+    {
+      "act": 1,
+      "title": "Alarm",
+      "question": "How bad is it, really?",
+      "models": [
+        "M1",
+        "M13",
+        "M5"
+      ]
+    },
+    {
+      "act": 2,
+      "title": "Diagnosis",
+      "question": "What is actually causing it?",
+      "models": [
+        "M3",
+        "M2",
+        "M4",
+        "M7",
+        "M12",
+        "M8",
+        "M11",
+        "M6"
+      ]
+    },
+    {
+      "act": 3,
+      "title": "The Spread",
+      "question": "What happens next if we act, or don't?",
+      "models": [
+        "M15",
+        "M14",
+        "M18",
+        "M10",
+        "M9",
+        "M17"
+      ]
+    },
+    {
+      "act": 4,
+      "title": "The Colony Decides",
+      "question": "How do 200 people choose a future together?",
+      "models": [
+        "M16",
+        "M19",
+        "M20"
+      ]
+    }
+  ],
+  "ending": "The final project: the council asks you to write the colony's 10-year plan, using at least five models by name."
+}

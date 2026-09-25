@@ -1,0 +1,123 @@
+{
+  "id": "M15",
+  "name": "Exponentials and S-curves",
+  "aliases": [
+    "Exponential growth",
+    "Rule of 70",
+    "Logistic growth"
+  ],
+  "originator": "Thomas Malthus (1798); Pierre-François Verhulst (logistic curve, 1838)",
+  "year": "1798 / 1838",
+  "evidence": "proven",
+  "category": "Recurring patterns",
+  "rule": "Anything growing in proportion to itself doubles on a schedule: years to double ≈ 70 ÷ % growth rate. Real exponentials eventually bend into S-curves when they hit limits.",
+  "plain": "Doubling looks like nothing, then everything. Intuition expects straight lines, so it's always late.",
+  "formula": "doubling time ≈ 70 / r%   ·   dN/dt = rN(1 − N/K)",
+  "story": {
+    "act": 3,
+    "trail": 12,
+    "location": "greenhouse",
+    "cast": [
+      "you",
+      "mira",
+      "ada"
+    ],
+    "beat": "Blight is on 4 racks. 'Only 1%,' says Rook. You check the log: it doubles every 3 days. 4 → 8 → 16 → 32 → 64 → 128 → 256 → the whole dome in about 3 weeks. Waiting a week for more data means acting with four times as many sick racks. The curve only bends into an S when it runs out of racks, which is too late."
+  },
+  "examples": [
+    {
+      "location": "market",
+      "text": "A loan at 7% a year doubles in about 10 years (70 ÷ 7)."
+    },
+    {
+      "location": "habitat",
+      "text": "A new app spreads through the Ring fast, then levels off once everyone has it. A classic S-curve."
+    },
+    {
+      "location": "power",
+      "text": "Power demand growing 5% a year doubles in 14 years. Plan the reactor expansion now, not when the lights flicker."
+    }
+  ],
+  "sim": {
+    "type": "flow",
+    "kind": "growth-curve",
+    "settings": {
+      "initial": 4,
+      "doublingDays": 3,
+      "capacity": 400,
+      "toggle": [
+        "linear intuition",
+        "exponential",
+        "logistic"
+      ]
+    }
+  },
+  "realCase": {
+    "kind": "failure",
+    "title": "Early COVID-19 delays",
+    "year": 2020,
+    "text": "In early 2020, confirmed cases in many countries doubled every few days. Governments that waited for case counts to 'look serious' acted when the numbers were already many times larger, because every week's delay multiplied the problem.",
+    "source": "Our World in Data, COVID-19 case doubling times (2020)"
+  },
+  "misuse": "Extrapolating an exponential forever. Every real exponential hits a limit and bends into an S-curve, so predictions of infinite growth are as wrong as linear ones.",
+  "related": [
+    "M14",
+    "M6",
+    "M13"
+  ],
+  "sources": [
+    "Albert Bartlett, 'Arithmetic, Population and Energy' lecture (1969 onward)",
+    "Donella Meadows et al., The Limits to Growth (1972)"
+  ],
+  "videos": [
+    {
+      "title": "Exponential growth and epidemics",
+      "channel": "3Blue1Brown",
+      "url": null,
+      "verified": false
+    }
+  ],
+  "animation": {
+    "planned": true,
+    "tool": "Manim",
+    "note": "One of the 2 code-made animations: a doubling grid of racks bending into an S-curve."
+  },
+  "quiz": {
+    "predict": {
+      "prompt": "Blight on 4 of 400 racks, doubling every 3 days. Roughly when is the whole dome infected?",
+      "options": [
+        "about 3 months",
+        "about 3 weeks",
+        "about 1 year",
+        "never"
+      ],
+      "answer": 1,
+      "why": "4 → 400 is about 7 doublings × 3 days ≈ 20 days."
+    },
+    "mcq": [
+      {
+        "prompt": "Growth of 10% a year doubles in about…",
+        "options": [
+          "3 years",
+          "7 years",
+          "10 years",
+          "70 years"
+        ],
+        "answer": 1,
+        "why": "70 ÷ 10 = 7."
+      }
+    ],
+    "whichModel": {
+      "prompt": "A lily pad patch doubles daily and covers the pond on day 30. On day 29 it covers half and nobody worries.",
+      "options": [
+        "Exponentials and S-curves",
+        "Feedback loops",
+        "Fat tails",
+        "Chaos"
+      ],
+      "answer": 0,
+      "why": "The classic late-intuition trap."
+    }
+  },
+  "evidenceLabel": "✅ proven (math/logic)"
+}

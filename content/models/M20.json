@@ -1,0 +1,116 @@
+{
+  "id": "M20",
+  "name": "Trade-offs and opportunity cost",
+  "aliases": [
+    "No free lunch",
+    "Opportunity cost"
+  ],
+  "originator": "Friedrich von Wieser (term 'opportunity cost', 1914); Frédéric Bastiat",
+  "year": "1914",
+  "evidence": "proven",
+  "category": "Recurring patterns",
+  "rule": "Every choice costs the best alternative you gave up, and no solution maximises everything at once.",
+  "plain": "Saying yes to one thing is saying no to something else. Name what you're giving up.",
+  "formula": "Opportunity cost = value of the best forgone alternative",
+  "story": {
+    "act": 4,
+    "trail": 20,
+    "location": "power",
+    "cast": [
+      "ada",
+      "rook",
+      "mira",
+      "you"
+    ],
+    "beat": "The final decision. Power is finite. Full lamps for the greenhouse means half-speed mining, which means less ice, less water and slower hull repairs. Everyone wants everything maximised. You draw the power budget as one bar split into colours: every watt moved is a watt taken. The council picks a plan knowing exactly what it gave up, and writes that down."
+  },
+  "examples": [
+    {
+      "location": "clinic",
+      "text": "An hour Dox spends on paperwork is an hour not spent with patients."
+    },
+    {
+      "location": "habitat",
+      "text": "Bigger living quarters mean more air to heat and scrub. Comfort costs oxygen."
+    },
+    {
+      "location": "market",
+      "text": "Credits spent on luxury rations can't fund the backup pump."
+    }
+  ],
+  "sim": {
+    "type": "flow",
+    "kind": "budget-split",
+    "settings": {
+      "totalKW": 1000,
+      "uses": [
+        "greenhouse lamps",
+        "mining",
+        "life support",
+        "habitat"
+      ],
+      "outputs": [
+        "O2",
+        "water",
+        "safety margin",
+        "comfort"
+      ]
+    }
+  },
+  "realCase": {
+    "kind": "failure",
+    "title": "The Space Shuttle: one vehicle for every mission",
+    "year": "1972–2011",
+    "text": "The Shuttle was designed to be reusable, carry heavy cargo, meet military cross-range requirements and fly crew, all in one vehicle. The combined requirements drove up cost and complexity. It flew far less often and cost far more per launch than planned, and two orbiters were lost.",
+    "source": "Columbia Accident Investigation Board Report, Vol. 1, ch. 1 (2003); Roger Launius, NASA history publications"
+  },
+  "misuse": "Assuming every choice is zero-sum. Sometimes a better design or new technology improves several goals at once, so check for real innovation before accepting the trade-off.",
+  "related": [
+    "M16",
+    "M19",
+    "M1"
+  ],
+  "sources": [
+    "Thomas Sowell, Basic Economics (2000)",
+    "N. Gregory Mankiw, Principles of Economics, ch. 1 (Ten Principles)"
+  ],
+  "quiz": {
+    "predict": {
+      "prompt": "The greenhouse lamps get 100 kW more. What must happen?",
+      "options": [
+        "Nothing else changes",
+        "Another use loses 100 kW, e.g. mining slows and less water comes in",
+        "The power plant makes more automatically",
+        "Oxygen falls"
+      ],
+      "answer": 1,
+      "why": "A fixed budget means every gain is a loss somewhere else."
+    },
+    "mcq": [
+      {
+        "prompt": "The opportunity cost of studying for 2 hours is…",
+        "options": [
+          "zero",
+          "the best thing you'd otherwise have done with those hours",
+          "the textbook price",
+          "your tuition"
+        ],
+        "answer": 1,
+        "why": "It's the best forgone alternative."
+      }
+    ],
+    "whichModel": {
+      "prompt": "A company can fund one of two projects. Choosing A means forgoing B's expected profit.",
+      "options": [
+        "Trade-offs and opportunity cost",
+        "Sunk cost",
+        "Incentives",
+        "Bottlenecks"
+      ],
+      "answer": 0,
+      "why": "The forgone B is the real cost of A."
+    }
+  },
+  "videos": [],
+  "evidenceLabel": "✅ proven (math/logic)"
+}

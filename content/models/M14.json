@@ -1,0 +1,121 @@
+{
+  "id": "M14",
+  "name": "Feedback loops",
+  "aliases": [
+    "Reinforcing and balancing loops",
+    "Systems thinking"
+  ],
+  "originator": "Norbert Wiener (cybernetics); Jay Forrester; Donella Meadows",
+  "year": "1948 / 1961 / 2008",
+  "evidence": "strong",
+  "category": "Recurring patterns",
+  "rule": "Reinforcing loops snowball, balancing loops stabilise, and delays cause overshoot and oscillation.",
+  "plain": "Outputs feed back into inputs. Find the loops and you understand why the system behaves the way it does.",
+  "formula": "Δstock = inflow − outflow (per time step)",
+  "story": {
+    "act": 3,
+    "trail": 13,
+    "location": "lifesupport",
+    "cast": [
+      "ada",
+      "you"
+    ],
+    "beat": "Ada wires CO2 injection to boost plant growth. The sensor reads with a 6-hour delay. CO2 is low, so she injects; the reading doesn't change yet, so she injects more. Six hours later CO2 overshoots and the plants suffer. She cuts it, and it undershoots. The delay turned a balancing loop into a wobble. Meanwhile sick plants make less oxygen, stressing the healthy ones, which then get sick: a reinforcing loop."
+  },
+  "examples": [
+    {
+      "location": "market",
+      "text": "Rumour of a water shortage → hoarding → real shortage → more hoarding. A reinforcing loop, like a bank run."
+    },
+    {
+      "location": "habitat",
+      "text": "Thermostats form a balancing loop: too cold → heat on → warm → heat off."
+    },
+    {
+      "location": "docks",
+      "text": "Order delays make supply managers over-order, then under-order: the bullwhip effect."
+    }
+  ],
+  "sim": {
+    "type": "flow",
+    "kind": "stock-and-flow",
+    "settings": {
+      "stock": "CO2 level",
+      "target": 1000,
+      "sensorDelayHours": 6,
+      "sliders": [
+        "sensorDelayHours",
+        "gain"
+      ]
+    }
+  },
+  "realCase": {
+    "kind": "failure",
+    "title": "The Beer Game",
+    "year": "1960s onward",
+    "text": "In MIT's supply-chain simulation, players manage one link of a beer supply chain with delayed orders. Almost every team produces wild swings of shortage and glut from one small change in customer demand. They blame each other, but the cause is the delay in the loop.",
+    "source": "John Sterman, 'Modeling Managerial Behavior', Management Science 35 (1989)"
+  },
+  "misuse": "Drawing loops for everything until the diagram explains nothing. A loop map is a hypothesis; check it against data.",
+  "related": [
+    "M15",
+    "M6",
+    "M10",
+    "M5"
+  ],
+  "sources": [
+    "Donella Meadows, Thinking in Systems (2008)",
+    "Peter Senge, The Fifth Discipline (1990)"
+  ],
+  "videos": [
+    {
+      "title": "LOOPY: a tool for thinking in systems (interactive)",
+      "channel": "Nicky Case",
+      "url": "https://ncase.me/loopy/",
+      "verified": false
+    }
+  ],
+  "animation": {
+    "planned": true,
+    "tool": "Manim",
+    "note": "One of the 2 code-made animations: a delayed balancing loop overshooting and oscillating, compared with the same loop without delay."
+  },
+  "quiz": {
+    "predict": {
+      "prompt": "The CO2 sensor has a 6-hour delay. Ada adjusts injection every hour based on it. What happens?",
+      "options": [
+        "CO2 stays perfectly steady",
+        "CO2 overshoots and swings back and forth",
+        "Nothing changes",
+        "CO2 falls to zero"
+      ],
+      "answer": 1,
+      "why": "Acting on delayed information in a balancing loop causes oscillation."
+    },
+    "mcq": [
+      {
+        "prompt": "A bank run is a…",
+        "options": [
+          "balancing loop",
+          "reinforcing loop",
+          "random walk",
+          "equilibrium"
+        ],
+        "answer": 1,
+        "why": "Each withdrawal makes the next more likely."
+      }
+    ],
+    "whichModel": {
+      "prompt": "A shower goes from freezing to scalding because the water takes a few seconds to reach you.",
+      "options": [
+        "Feedback loops",
+        "Chaos",
+        "Incentives",
+        "Trade-offs"
+      ],
+      "answer": 0,
+      "why": "A balancing loop with a delay."
+    }
+  },
+  "evidenceLabel": "🔬 strong evidence"
+}
