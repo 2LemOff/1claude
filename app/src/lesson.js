@@ -63,7 +63,7 @@ function saveProg(id){
   PROG[id].updatedAt = Date.now();
   store.set('prog', PROG);
   if (DB) DB.doc('progress/' + id).set(PROG[id]).catch(() => {});
-  updateCounts();
+  updateCounts(); updateDue();
 }
 function updateCounts(){
   const n = TRAIL.filter(isDone).length;
@@ -98,6 +98,7 @@ function stageCast(loc, ids){
 }
 function openModel(id, opts = {}){
   const m = MODELS[id]; cur = m; store.set('last', id);
+  if (MODE !== 'lesson'){ MODE = 'lesson'; modeUI(); }
   closeSim(); closeTrail();
   sentences = splitSentences(m.story.beat); beatIdx = 0;
   blight = Math.min(1, (m.story.trail - 1) / 16);
@@ -108,6 +109,7 @@ function openModel(id, opts = {}){
 function goStep(i, fresh){
   const m = cur; step = Math.max(0, Math.min(STEPS.length - 1, i));
   const p = P(m.id); p.step = step; p.seen = Math.max(p.seen || 0, step); store.set('prog', PROG);
+  if (step === 3 && typeof updateDue === 'function') updateDue();
   if (SIM && STEPS[step].id !== 'simulate') closeSim();
   // move the scene to match the step
   const loc = m.story.location;
@@ -177,6 +179,7 @@ function calibration(){
 }
 
 function renderStep(){
+  if (MODE !== 'lesson'){ renderMode(); return; }
   const m = cur, s = STEPS[step], p = P(m.id);
   $('#steps').innerHTML = STEPS.map((x, i) => `<button type="button" role="tab" data-step="${i}" class="${i <= (p.seen || 0) ? 'seen' : ''}" ${i === step ? 'aria-current="step"' : ''}><span class="lbl">${i + 1} ${x.label}</span></button>`).join('');
   $('#steps').querySelectorAll('[data-step]').forEach(b => b.onclick = () => goStep(+b.dataset.step));
@@ -206,6 +209,7 @@ function renderStep(){
       <div class="thread" id="thread">${th.map(t => `<div class="msg ${t.role === 'user' ? 'me' : 'tutor'}"><span class="who">${t.role === 'user' ? 'you' : 'tutor'}</span>${esc(t.content)}</div>`).join('')}</div>
       <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn primary" id="askTutor" type="button">${th.length ? 'Reply to tutor' : 'Ask the tutor'}</button>${th.length ? '<button class="btn ghost" id="clearTutor" type="button">Start over</button>' : ''}</div>
       <p class="small" id="tutorNote">${th.length ? 'Write your answer to the tutor\'s question in the box, then reply.' : 'The tutor checks your explanation and asks one "why?" question.'}</p>
+      <p class="small"><button class="linkish" type="button" id="toTutor">Keep going in the full tutor chat</button></p>
       <div class="sec"><h4>Check yourself</h4><ul class="checklist"><li>Did you name the model and its rule?</li><li>Did you give an example that isn't from the colony?</li><li>Did you say when it misleads?</li></ul></div>`;
   } else if (s.id === 'review'){
     const cal = calibration();
@@ -254,6 +258,7 @@ function wireTutor(){
   box.onchange = () => saveProg(cur.id);
   const clr = $('#clearTutor'); if (clr) clr.onclick = () => { P(cur.id).tutor = []; saveProg(cur.id); renderStep(); };
   $('#askTutor').onclick = askTutor;
+  $('#toTutor').onclick = () => { TUT.topic = cur.id; setMode('tutor'); };
 }
 async function askTutor(){
   if (tutorBusy) return;
@@ -334,8 +339,10 @@ function frame(now){
   if (SIM) drawHolo(dt);
   requestAnimationFrame(frame);
 }
+document.querySelectorAll('[data-mode]').forEach(b => b.onclick = () => { if (b.dataset.mode === 'recall') RS = {view:'menu'}; setMode(b.dataset.mode); });
+$('#dueCount').onclick = () => { RS = {view:'menu'}; setMode('recall'); };
 overview(); cam.x = cam.tx; cam.y = cam.ty; cam.z = cam.tz;
-updateCounts();
+updateCounts(); updateDue();
 const start = store.get('last', TRAIL[0]);
 openModel(MODELS[start] ? start : TRAIL[0]);
 requestAnimationFrame(frame);

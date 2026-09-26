@@ -1,7 +1,7 @@
 """Build app/dist/kepler-station.html from app/src/* and content/*.json.
 
 Order matters: engine.js (scene, cast, helpers) -> sims.js (dots & flow screens)
--> diagrams.js (tap-to-explore screens) -> lesson.js (8-step lesson, progress, loop).
+-> diagrams.js (tap-to-explore screens) -> recall.js (recall menu, FSRS, Anki, tutor chat) -> lesson.js (8-step lesson, progress, loop).
 """
 import json, pathlib
 
@@ -12,7 +12,7 @@ content = {
     "index": json.loads((root / "content/index.json").read_text()),
     "models": [json.loads(p.read_text()) for p in sorted((root / "content/models").glob("M*.json"))],
 }
-js = "\n".join((src / f).read_text() for f in ["engine.js", "sims.js", "diagrams.js", "lesson.js"])
+js = "\n".join((src / f).read_text() for f in ["engine.js", "sims.js", "diagrams.js", "recall.js", "lesson.js"])
 assert "/*__CONTENT__*/null" in js
 js = js.replace("/*__CONTENT__*/null", json.dumps(content, ensure_ascii=False).replace("</", "<\\/"))
 out = root / "app/dist/kepler-station.html"

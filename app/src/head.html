@@ -48,6 +48,7 @@ button,input,textarea{font:inherit;color:inherit}
 .status b{color:var(--ink);font-weight:500}
 .status .bad b{color:var(--warn)}
 #stopsBtn{display:none}
+#dueCount{cursor:pointer}
 
 .main{display:grid;grid-template-columns:minmax(0,1fr) 440px;gap:18px;align-items:start}
 .stage{position:sticky;top:calc(env(safe-area-inset-top,0px) + 10px);display:flex;flex-direction:column;gap:10px;min-width:0}
@@ -148,7 +149,47 @@ textarea{width:100%;min-height:120px;padding:10px 12px;border:1px solid var(--li
 .nav .mid{flex:1;text-align:center;font-family:var(--f-mono);font-size:11px;text-transform:uppercase;color:var(--muted);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .nav .btn{min-width:92px}
 
+.modes{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;padding:12px 14px 0}
+.modes button{all:unset;cursor:pointer;text-align:center;padding:8px 6px;min-height:22px;border:1px solid var(--line);border-radius:4px;font-family:var(--f-display);font-weight:600;font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:var(--bg)}
+.modes button[aria-selected="true"]{color:var(--accent-ink);background:var(--accent);border-color:var(--accent)}
+.modes button:focus-visible{outline:2px solid var(--accent)}
+.badge:not(:empty){display:inline-block;min-width:20px;padding:0 5px;margin-left:4px;border-radius:10px;background:var(--warn);color:#fff;font-family:var(--f-mono);font-size:11px;line-height:18px;letter-spacing:0}
+.menu{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.tile{all:unset;cursor:pointer;display:flex;flex-direction:column;gap:4px;padding:12px;border:1px solid var(--line);border-radius:6px;background:var(--panel)}
+.tile b{font-family:var(--f-display);font-size:18px;font-weight:700}
+.tile span{font-size:13px;color:var(--muted);line-height:1.35}
+.tile.primary{border-color:var(--accent);background:rgba(11,138,131,.08)}
+.tile:hover{border-color:var(--accent)}
+.tile:focus-visible{outline:2px solid var(--accent)}
+.tile[disabled]{opacity:.5;cursor:not-allowed}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.stats div{display:flex;flex-direction:column;padding:8px 10px;background:var(--bg);border-radius:4px}
+.stats b{font-family:var(--f-display);font-size:22px;font-variant-numeric:tabular-nums}
+.stats span{font-size:12px;color:var(--muted)}
+.forecast{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;height:84px;align-items:end}
+.forecast div{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:2px}
+.forecast span{width:70%;min-height:2px;background:var(--accent);border-radius:2px 2px 0 0}
+.forecast em{font-style:normal;font-family:var(--f-mono);font-size:11px;font-variant-numeric:tabular-nums}
+.forecast small{font-family:var(--f-mono);font-size:10px;color:var(--muted)}
+.card{border:1px solid var(--line);border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:6px;background:var(--panel)}
+.card.answer{border-color:var(--accent);background:rgba(11,138,131,.07)}
+.card .front{margin:0;font-family:var(--f-story);font-size:21px;line-height:1.35}
+.grades{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.grades .btn{display:flex;flex-direction:column;align-items:center;gap:0;padding:6px 4px;min-height:52px}
+.grades small{font-family:var(--f-mono);font-size:11px;text-transform:none;letter-spacing:0;opacity:.8}
+.select{width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:4px;background:var(--bg);font:inherit;font-size:15px;color:var(--ink)}
+.tick{display:grid;grid-template-columns:22px 1fr;gap:8px;align-items:start;padding:8px 10px;border:1px solid var(--line);border-radius:4px;font-size:14px;cursor:pointer}
+.tick input{width:18px;height:18px;accent-color:var(--accent);margin-top:2px}
+.linkish{all:unset;cursor:pointer;color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+.linkish:focus-visible{outline:2px solid var(--accent)}
+.starters{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.starters .opt{all:unset;cursor:pointer;padding:10px 12px;border:1px solid var(--line);border-radius:4px;font-size:14px;background:var(--panel)}
+.starters .opt:hover{border-color:var(--accent)}
+.method{padding-bottom:10px;border-bottom:1px solid var(--line)}
 @media (max-width:960px){
+  body.nonav{padding-block-end:calc(24px + env(safe-area-inset-bottom,0px))}
+  .modes{padding-inline:0}
+  .menu,.starters{grid-template-columns:1fr}
   body{padding-inline:12px;padding-block:8px calc(var(--navh) + 24px + env(safe-area-inset-bottom,0px))}
   .brand h1{font-size:22px}
   .brand span{display:none}
@@ -188,6 +229,7 @@ textarea{width:100%;min-height:120px;padding:10px 12px;border:1px solid var(--li
       <span class="bad">short <b>≈50 kg/day</b></span>
       <span>ship <b>T−90 d</b></span>
       <span id="doneCount">learned <b>0/20</b></span>
+      <span id="dueCount">due <b>0</b></span>
     </div>
   </header>
 
@@ -206,6 +248,11 @@ textarea{width:100%;min-height:120px;padding:10px 12px;border:1px solid var(--li
     </section>
 
     <article class="panel" id="panel">
+      <div class="modes" role="tablist" aria-label="Mode">
+        <button type="button" role="tab" data-mode="lesson" aria-selected="true">Lesson</button>
+        <button type="button" role="tab" data-mode="recall" aria-selected="false">Recall <span class="badge" id="dueBadge"></span></button>
+        <button type="button" role="tab" data-mode="tutor" aria-selected="false">Tutor</button>
+      </div>
       <div class="steps" id="steps" role="tablist" aria-label="Lesson steps"></div>
       <div class="body" id="body" aria-live="polite"></div>
       <div class="nav">
